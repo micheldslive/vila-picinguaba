@@ -1,5 +1,6 @@
 # VILA PICINGUABA
 
+## PROJETO ANTIGO EM JAVASCRIPT CONVERTIDO PARA TYPESCRIPT
 
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -35,6 +36,21 @@ Criar a infraestrutura necessária para o armazenamento e coleta de dados de um 
   - **mysql** - Drive para gerenciamento do banco de dados
   - **uuid** - gerador de id timestamp
   - **Swagger** - para descrever / documentar a API REST
+
+# Frontend:
+
+## Tecnologias implementadas 
+
+- **Vitejs**
+  - **Yarn** - sistema de gerenciamento de pacotes
+  - **Typescript** - por ser estritamente tipado 
+  - **Zustand** - gerenciador de estados
+  - **react-router-dom** - gerenciador de rotas
+  - **vitest** - testes unitários
+  - **styled-components** - estilização (css-in-js)
+  - **bootstrap** - framework css
+  - **gsap** - lib responsável pelas animações
+  - **axios** - cliente HTTP baseado em Promises
 
 # Execução  
 

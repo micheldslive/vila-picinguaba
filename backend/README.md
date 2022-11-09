@@ -1,12 +1,10 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API VILA PICINGUABA
+
+#
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
@@ -22,52 +20,108 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Objetivo  
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Criar a infraestrutura necessária para o armazenamento e coleta de dados de um site. Isso inclui:
+  
+- configuração do banco de dados com as tabelas necessárias e relacionamentos entre elas;
+- criação de uma API capaz de enviar, coletar e atualizar dados;
+- criação de uma página web para mostrar as capacidades da API.
 
-## Installation
+# Tecnologias implementadas 
 
-```bash
-$ npm install
+Neste projeto foram utilizadas as seguintes tecnologias / bibliotecas:
+
+- **Nestjs**
+  - **Yarn** - sistema de gerenciamento de pacotes
+  - **Typescript** - por ser estritamente tipado 
+  - **typeORM** - construtor de consultas para a comunicação
+  - **mysql** - Drive para gerenciamento do banco de dados
+  - **uuid** - gerador de id timestamp
+  - **Swagger** - para descrever / documentar a API REST
+
+# Banco de Dados 
+
+A estrutura do banco de dados foi concebida após analisar as necessidades do cliente no descritivo teste prático.
+
+-----
+
+## typeORM  
+
+As tabelas foram criadas através do módulo de nó "typeORM" usando `synchronize` para implementar as tabelas, colunas, e relações necessárias.  
+  
+O arquivo `src/connection/index.ts` armazena as informações de conexão do typeORM com o banco de dados desejado.
+
+
+## Escrevendo as informações iniciais  
+  
+Agora podemos inserir todos os dados iniciais por meio de um único comando de terminal, em vez de precisar inseri-los um a um usando a API ou o gerenciador de banco mysql.  
+  
+  
+# API REST
+
+Para a criação da API foi utilizado a cli Nestjs. Com ele conseguimos nos comunicar com as requisições do protocolo HTTP.Separamos as etapas em:
+- **controllers**
+- **entities**
+- **modules**
+- **services**
+
+## SWAGGER
+  
+"Swagger" utilizado para criar gerar uma página mostrando o que é possível fazer com a API. Ele exibirá todos os endpoints e os métodos possíveis de usar.
+
+![Possible requests to interact with each table](.github/swagger.png?raw=true "Possible requests")
+
+# Execução  
+  
+### Para executar o aplicativo primeiro instale a `node_modules`:
+
+```
+yarn
+```
+  
+### Ajuste o `src/connection/index.ts` para direcionar para o banco de dados desejado:
+
+```
+    {
+      host: "localhost",
+      user: "your_user_here",
+      password: "your_password_here",
+      database: "your_database_here",
+    },
 ```
 
-## Running the app
+### Caso possua o docker instalado, utilize o comando abaixo para criar os `containers` do banco / api:
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```
+docker-compose up
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+### Para iniciar a api:
+```
+yarn start
 ```
 
-## Support
+### Para iniciar a api com hot reload:
+```
+yarn start:dev
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+### Para iniciar a api em modo de produção:
+```
+yarn start:prod
+```  
+  
+## Desenveloper<br>
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/micheldslive">
+        <img src="https://avatars.githubusercontent.com/u/55795597?v=4" width="100" alt="Foto no GitHub"/><br>
+        <sub>
+          <b>Michel Domingos</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>

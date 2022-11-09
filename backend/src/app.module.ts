@@ -1,10 +1,17 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import 'reflect-metadata'
+import { Module } from '@nestjs/common'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { ProdutosModule } from './modules/produtos.module'
+import { CategoriasModule } from './modules/categorias.module'
+import { ImagensModule } from './modules/imagens.module'
+import { connection } from './connection'
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot(connection),
+    ProdutosModule,
+    CategoriasModule,
+    ImagensModule,
+  ],
 })
 export class AppModule {}

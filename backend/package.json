@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "api-picinguaba",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -18,15 +18,23 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm:cli": "nest -r tsconfig-paths/register ./node_modules/typeorm/cli -f ./ormconfig-migrations.ts",
+    "migration-generate": "yarn typeorm:cli -- migration:generate -n"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^5.1.5",
+    "@nestjs/typeorm": "^8.0.2",
+    "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "swagger-ui-express": "^4.3.0",
+    "typeorm": "^0.2.41",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
@@ -36,6 +44,7 @@
     "@types/jest": "28.1.8",
     "@types/node": "^16.0.0",
     "@types/supertest": "^2.0.11",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",

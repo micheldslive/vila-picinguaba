@@ -22,6 +22,13 @@ export class ProdutosService {
     })
   }
 
+  findAllByCat(id_categoria: string): Promise<Produtos[]> {
+    return this.produtosRepository.find({
+      relations: ['categoria', 'imagens'],
+      where: { id_categoria },
+    })
+  }
+
   createProduto(produto: Produtos): Promise<Produtos> {
     return this.produtosRepository.save(produto)
   }

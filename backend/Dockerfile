@@ -1,15 +1,13 @@
-FROM node:10-alpine
+FROM node:16-alpine
 
 WORKDIR /usr/src/app
 
 RUN npm install -g @nestjs/cli
 
-COPY package.json ./
-
-RUN npm i --silent
-
 COPY . .
+
+RUN yarn
 
 EXPOSE 4000
 
-CMD npm start
+CMD yarn start

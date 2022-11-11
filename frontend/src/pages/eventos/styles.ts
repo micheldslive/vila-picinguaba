@@ -1,23 +1,23 @@
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Texture } from './produtos'
+import { Texture } from '../../components/products/styles'
 
-export const EventosContent = styled.div`
+export const EventsContent = styled.div`
   padding: 3em 0 4em;
   background: url(${Texture});
   background-size: cover;
 `
 
-export const EventosContainer = styled.section`
+export const EventsContainer = styled.section`
   max-width: 900px;
 `
 
-export const EventoRow = styled(Row)``
+export const EventRow = styled(Row)``
 
-export const EventoCol = styled(Col)``
+export const EventCol = styled(Col)``
 
-export const EventoLink = styled(Link)`
+export const EventLink = styled(Link)`
   &:hover > div {
     background-color: var(--gray);
     box-shadow: 3px 5px 17px rgba(0, 0, 0, 0.25);
@@ -25,18 +25,18 @@ export const EventoLink = styled(Link)`
   }
 `
 
-export const EventoCard = styled.div`
+export const EventCard = styled.div`
   transition: 300ms;
   border-radius: 15px;
   text-align: center;
   padding: 40px;
 `
 
-export const EventoIMG = styled.img`
+export const EventIMG = styled.img`
   padding-bottom: 15px;
 `
 
-export const EventoTitle = styled.h1`
+export const EventTitle = styled.h1`
   text-transform: uppercase;
   font-family: 'Staatliches', cursive;
   font-size: 40px;
@@ -44,4 +44,4 @@ export const EventoTitle = styled.h1`
   color: var(--darkBlue);
 `
 
-export const EventoDesc = styled.p``
+export const EventDesc = styled.p``

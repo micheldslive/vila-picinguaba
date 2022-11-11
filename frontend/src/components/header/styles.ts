@@ -2,13 +2,9 @@ import styled from 'styled-components'
 import { NavLink, Link } from 'react-router-dom'
 import { ReactComponent as LogoPicinguaba } from '@/assets/images/logo-picinguaba.svg'
 import WaveComp from '@/assets/images/wave.svg'
+import { StatesProps } from '@/core/types'
 
-interface StyledProps {
-  open?: boolean
-  sticky?: boolean
-}
-
-export const HeaderContent = styled.header<StyledProps>`
+export const HeaderContent = styled.header<StatesProps>`
   position: fixed;
   width: 100%;
   height: ${({ open }) => (open ? '100%' : '')};
@@ -19,7 +15,7 @@ export const HeaderContent = styled.header<StyledProps>`
   background-color: var(--gray);
 `
 
-export const HeaderContainer = styled.section<StyledProps>`
+export const HeaderContainer = styled.section<StatesProps>`
   transition: 300ms;
   height: ${({ sticky }) => (sticky ? '75px' : '100px')};
   display: flex;
@@ -79,7 +75,7 @@ export const MenuLink = styled(NavLink)`
   }
 `
 
-export const Navigation = styled.nav<StyledProps>`
+export const Navigation = styled.nav<StatesProps>`
   z-index: 0;
 
   @media (max-width: 1180px) {
@@ -151,45 +147,3 @@ export const List = styled.li`
     padding-bottom: 12px;
   }
 `
-
-export const Burger = styled.button<StyledProps>`
-  @media (min-width: 1181px) {
-    display: none;
-  }
-
-  @media (max-width: 1180px) {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 20px;
-    height: 19px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-
-    &:focus {
-      outline: none;
-    }
-
-    span {
-      width: 20px;
-      height: 2px;
-      background: var(--darkBlue);
-      border-radius: 10px;
-      transition: all 0.3s linear;
-      position: relative;
-      transform-origin: 1px;
-
-      :nth-child(1) {
-        transform: ${({ open }) => (open ? 'rotate(34deg)' : 'rotate(0)')};
-      }
-
-      :nth-child(2) {
-        transform: ${({ open }) => (open ? 'rotate(-34deg)' : 'rotate(0)')};
-      }
-    }
-  }
-`
-export const Bullets = styled.span``

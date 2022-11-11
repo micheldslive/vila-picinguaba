@@ -32,6 +32,10 @@ export class Produtos {
   @ApiProperty()
   disponivel: number
 
+  @Column('varchar', { length: 255, name: 'descricao' })
+  @ApiProperty()
+  descricao: string
+
   @ManyToOne(() => Categorias, (tbCategorias) => tbCategorias.produtos, {
     onDelete: 'RESTRICT',
     onUpdate: 'RESTRICT',

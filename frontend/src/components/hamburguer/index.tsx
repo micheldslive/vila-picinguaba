@@ -1,5 +1,5 @@
-import { Bullets, Burger } from '@/assets/styles/header'
-import useStore from '@/core/zustand'
+import { Bullets, Burger } from './styles'
+import { useStore } from '@/core/zustand'
 
 const Hamburguer = () => {
   const { open, setOpen } = useStore()

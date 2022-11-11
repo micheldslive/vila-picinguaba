@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ReactComponent as RefugioSVG } from '@/assets/images/refugio.svg'
+import { ReactComponent as RefugeSVG } from '@/assets/images/refugio.svg'
 
 export const VideoContainer = styled.div`
   margin-bottom: -5px;
@@ -40,8 +40,7 @@ export const TitleContent = styled.div`
   justify-content: center;
 `
 
-/* export const Refugio = styled.svg` */
-export const Refugio = styled(RefugioSVG)`
+export const Refuge = styled(RefugeSVG)`
   max-width: 450px;
   width: 100%;
 

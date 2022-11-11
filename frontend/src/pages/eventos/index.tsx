@@ -1,66 +1,52 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { gsapFadeMove } from "@/utils/gsapEffect";
-import ImageBgTop from "@/components/background/image";
-import Background from "@/assets/images/eventos/eventos-bg.jpg";
-import { GlobalTitle, GlobalTitleContent } from "@/assets/styles/global";
-import {
-  EventoCard,
-  EventoCol,
-  EventoDesc,
-  EventoIMG,
-  EventoLink,
-  EventoRow,
-  EventosContainer,
-  EventosContent,
-  EventoTitle,
-} from "@/assets/styles/eventos";
-import Api from "@/services/Api";
+import { memo, useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { gsapFadeMove } from '@/utils/gsapEffect'
+import ImageBgTop from '@/components/backgrounds/image'
+import Background from '@/assets/images/eventos/eventos-bg.jpg'
+import { GlobalTitle, GlobalTitleContent } from '@/assets/styles/global'
+import * as S from './styles'
+import { useDataStore } from '@/core/zustand'
 
-const Eventos = () => {
-  const animate = useRef<HTMLDivElement>(null),
-    [produtos, setProdutos] = useState([]),
-    category = 1;
+const Events = () => {
+  const { eventos } = useDataStore(),
+    animate = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    Api.get(`/produtos/categoria/${category}`).then((res) => {
-      setProdutos(res.data);
-    });
-    gsapFadeMove(animate.current);
-  }, [category, animate]);
+    gsapFadeMove(animate.current)
+  }, [animate])
 
   return (
     <>
       <Helmet>
         <title>Vila Picinguaba - Eventos</title>
         <meta
-          name="description"
-          content="Uma vila de pescadores preservada entre o mar e a floresta."
+          name='description'
+          content='Uma vila de pescadores preservada entre o mar e a floresta.'
         />
       </Helmet>
-      <ImageBgTop background={Background} title={"Eventos"} />
+      <ImageBgTop background={Background} title={'Eventos'} />
       <GlobalTitleContent>
         <GlobalTitle isColor={true}>Eventos</GlobalTitle>
       </GlobalTitleContent>
-      <EventosContent>
-        <EventosContainer>
-          <EventoRow ref={animate}>
-            {produtos?.map(({ id, nome, descricao, imagem_thumb }) => (
-              <EventoCol key={id} lg={6} md={6}>
-                <EventoLink to={`/detalhes/${id}`}>
-                  <EventoCard>
-                    <EventoIMG src={imagem_thumb} alt={nome} />
-                    <EventoTitle>{nome}</EventoTitle>
-                    <EventoDesc>{descricao}</EventoDesc>
-                  </EventoCard>
-                </EventoLink>
-              </EventoCol>
+      <S.EventsContent>
+        <S.EventsContainer>
+          <S.EventRow ref={animate}>
+            {eventos?.map(({ id_produto, imagens, nome, descricao }) => (
+              <S.EventCol key={id_produto} lg={6} md={6}>
+                <S.EventLink to={`/detalhes/${id_produto}`}>
+                  <S.EventCard>
+                    <S.EventIMG src={imagens[0].url_thumb} alt={nome} />
+                    <S.EventTitle>{nome}</S.EventTitle>
+                    <S.EventDesc>{descricao}</S.EventDesc>
+                  </S.EventCard>
+                </S.EventLink>
+              </S.EventCol>
             ))}
-          </EventoRow>
-        </EventosContainer>
-      </EventosContent>
+          </S.EventRow>
+        </S.EventsContainer>
+      </S.EventsContent>
     </>
-  );
-};
+  )
+}
 
-export default Eventos;
+export default memo(Events)

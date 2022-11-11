@@ -7,6 +7,12 @@ services:
       - picinguaba-api
     ports:
       - "4173:4173"
+    environment:
+      VITE_API_BASEURL: 'picinguaba-api'
+      VITE_ID_EVENTOS: '5cd896b7-f00d-4772-afaa-16f3715d1709'
+      VITE_ID_ROTEIROS: 'f04096ea-4beb-4d57-a3b2-4b61fab54cd6'
+      VITE_ID_ACOMODACAO: 'c57fe202-62da-47f4-90b0-e963c324314a'
+      VITE_ID_ALIMENTACAO: 'fc3ef946-1777-4b44-8e9d-025fb024827d'
     networks:
       - backend
 
@@ -21,7 +27,7 @@ services:
       - "4000"
     command: "yarn start:dev"
     depends_on:
-      - picinguaba-dbtest
+      - picinguaba-db
     networks:
       - backend
     environment:

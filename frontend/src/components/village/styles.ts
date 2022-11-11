@@ -1,16 +1,9 @@
 import styled from 'styled-components'
 import { Row, Col } from 'react-bootstrap'
-import VilaImageJPG from '@/assets/images/home/pescador-rede.jpg'
+import { VillageProps } from '@/core/types'
+import VillageImageJPG from '@/assets/images/home/pescador-rede.jpg'
 
-interface StyledProps {
-  gradient?: boolean
-  bgColor?: string
-  bdColor?: string
-  bdBg?: string
-  bg?: string
-}
-
-export { VilaImageJPG }
+export { VillageImageJPG }
 
 export const Container = styled.section``
 
@@ -24,16 +17,16 @@ export const HomeCol = styled(Col)`
   margin-bottom: 35px;
 `
 
-// VILA - COMPONENT HOME PAGE
+// Village - COMPONENT HOME PAGE
 
-export const VilaContent = styled.div`
+export const VillageContent = styled.div`
   padding: 8em 0;
   background-color: var(--darkBlue);
 `
 
-export const VilaRow = styled(Row)``
+export const VillageRow = styled(Row)``
 
-export const VilaCol = styled(Col)`
+export const VillageCol = styled(Col)`
   padding: 0;
   margin-bottom: 35px;
   padding: 0 35px;
@@ -43,23 +36,23 @@ export const VilaCol = styled(Col)`
   }
 `
 
-export const VilaDescription = styled.p`
+export const VillageDescription = styled.p`
   padding-top: 15px;
   color: var(--gray2);
   line-height: 22px;
 `
 
-export const VilaImageContent = styled.div`
+export const VillageImageContent = styled.div`
   position: relative;
 `
 
-export const VilaImage = styled.img`
+export const VillageImage = styled.img`
   border-radius: 20px;
   width: 100%;
   filter: drop-shadow(6px 4px 20px rgba(0, 0, 0, 0.46));
 `
 
-export const VilaTitleContent = styled.div`
+export const VillageTitleContent = styled.div`
   position: absolute;
   bottom: -40px;
   width: 100%;
@@ -67,7 +60,7 @@ export const VilaTitleContent = styled.div`
   justify-content: center;
 `
 
-export const VilaTitle = styled.h1`
+export const VillageTitle = styled.h1`
   color: white;
   font-family: 'Staatliches', cursive;
   font-size: 80px;
@@ -81,7 +74,7 @@ export const VilaTitle = styled.h1`
   }
 `
 
-export const VilaParallaxBG = styled.div<StyledProps>`
+export const VillageParallaxBG = styled.div<VillageProps>`
   height: ${({ gradient }) => (gradient ? '650px' : '500px')};
   width: 100%;
   background: url(${({ bg }) => (bg ? bg : '')});
@@ -93,23 +86,23 @@ export const VilaParallaxBG = styled.div<StyledProps>`
   ${({ gradient }) =>
     gradient &&
     `
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(19, 55, 84, 1) -1%,
-      rgba(19, 55, 84, 0) 100%
-    );
-    width: 100%;
-    height: 300px;
-    margin-top: -1px;
-  }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(19, 55, 84, 1) -1%,
+          rgba(19, 55, 84, 0) 100%
+        );
+        width: 100%;
+        height: 300px;
+        margin-top: -1px;
+      }
   `}
 `
 
-export const VilaParallaxBorder = styled.div<StyledProps>`
+export const VillageParallaxBorder = styled.div<VillageProps>`
   height: 70px;
   background: url(${({ bdBg }) => (bdBg ? bdBg : '')})
     ${({ bdColor }) => (bdColor ? bdColor : '')};
@@ -117,11 +110,11 @@ export const VilaParallaxBorder = styled.div<StyledProps>`
   background-position: center;
 `
 
-export const VilaParallaxContainer = styled.div<StyledProps>`
+export const VillageParallaxContainer = styled.div<VillageProps>`
   background: ${({ bgColor }) => (bgColor ? bgColor : '')};
 `
 
-export const VilaParallaxContent = styled.div`
+export const VillageParallaxContent = styled.div`
   max-width: 800px;
   margin: 0 auto;
   padding: 4em 20px;
@@ -129,7 +122,7 @@ export const VilaParallaxContent = styled.div`
   color: white;
 `
 
-export const VilaParallaxTitle = styled.h1`
+export const VillageParallaxTitle = styled.h1`
   font-family: 'Staatliches', cursive;
   font-size: 50px;
   font-weight: 100;
@@ -141,12 +134,12 @@ export const VilaParallaxTitle = styled.h1`
   }
 `
 
-export const VilaParallaxDescription = styled.p`
+export const VillageParallaxDescription = styled.p`
   font-size: 20px;
   font-weight: 600;
 `
 
-export const VilaParallaxEnd = styled.div`
+export const VillageParallaxEnd = styled.div`
   height: 130px;
   margin-bottom: -130px;
   width: 100%;

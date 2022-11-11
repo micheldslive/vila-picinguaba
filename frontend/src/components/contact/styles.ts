@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Row, Col } from 'react-bootstrap'
 
-export const ContatoContent = styled.div`
+export const ContactContent = styled.div`
   padding-top: 40px;
   margin-bottom: -70px;
   background-color: var(--green1);

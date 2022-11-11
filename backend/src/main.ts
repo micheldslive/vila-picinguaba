@@ -4,7 +4,7 @@ import { AppModule } from './app.module'
 //import { mysqlDump } from '../ormconfig'
 
 const bootstrap = async () => {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule, { cors: true })
   const port: string | number = process.env.PORT || 4000
 
   const APP_NAME = process.env.npm_package_name || 'api-picinguaba'

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Background from '@/assets/images/detalhes/detalhes-bg.jpg'
-import ImageBgTop from '@/components/background/image'
+import ImageBgTop from '@/components/backgrounds/image'
 import { Container, GlobalTitle } from '@/assets/styles/global'
 import {
   DetailCategory,
@@ -14,11 +14,11 @@ import {
   DetailInfos,
   DetailRow,
   DetailTitle,
-} from '@/assets/styles/detalhes'
+} from './styles'
 import Api from '@/services/Api'
 import { gsapFadeMove } from '@/utils/gsapEffect'
 
-const Detalhes = () => {
+const Details = () => {
   const animate = useRef<HTMLDivElement>(null),
     [produto, setProduto] = useState<any>(),
     params = useParams()
@@ -64,4 +64,4 @@ const Detalhes = () => {
   )
 }
 
-export default Detalhes
+export default Details

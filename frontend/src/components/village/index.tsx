@@ -1,23 +1,11 @@
-import { useEffect, useRef } from "react";
-import { GlobalTitle } from "@/assets/styles/global";
-import {
-  Container,
-  VilaContent,
-  VilaRow,
-  VilaCol,
-  VilaDescription,
-  VilaImage,
-  VilaImageJPG,
-  VilaImageContent,
-  VilaTitleContent,
-  VilaTitle,
-  VilaParallaxEnd,
-} from "@/assets/styles/home";
-import { VilaParallax } from "./parallax";
+import { memo, useEffect, useRef } from "react";
+import * as G from "@/assets/styles/global";
+import * as S from "./styles";
+import { VillageParallax } from "@/components/parallax";
 import { parallax } from "@/services/home";
 import { gsapFadeMove } from "@/utils/gsapEffect";
 
-const Vila = () => {
+const Village = () => {
   const animate = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,14 +14,14 @@ const Vila = () => {
 
   return (
     <>
-      <VilaContent>
-        <Container>
-          <VilaRow ref={animate}>
-            <VilaCol lg={6} md={12}>
-              <GlobalTitle isColor={true}>
-                Uma vila preservada entre o mar e a floresta.
-              </GlobalTitle>
-              <VilaDescription>
+      <S.VillageContent>
+        <S.Container>
+          <S.VillageRow ref={animate}>
+            <S.VillageCol lg={6} md={12}>
+              <G.GlobalTitle isColor={true}>
+                Uma Village preservada entre o mar e a floresta.
+              </G.GlobalTitle>
+              <S.VillageDescription>
                 Em tupi-guarani, Picinguaba quer dizer “refúgio dos peixes”.
                 Picinguaba está localizada em uma tranquila baía no coração do
                 Parque Natural da Mata Atlântica – floresta tropical e
@@ -48,25 +36,25 @@ const Vila = () => {
                 sabedoria caiçara é conhecedora de terra e mar. As pessoas se
                 alimentam do que vem na rede do pescador, respeitam os
                 quereres da terra.
-              </VilaDescription>
-            </VilaCol>
-            <VilaCol lg={6} md={12}>
-              <VilaImageContent>
-                <VilaImage src={VilaImageJPG} alt="" />
-                <VilaTitleContent>
-                  <VilaTitle>
-                    Vila de
+              </S.VillageDescription>
+            </S.VillageCol>
+            <S.VillageCol lg={6} md={12}>
+              <S.VillageImageContent>
+                <S.VillageImage src={S.VillageImageJPG} alt="" />
+                <S.VillageTitleContent>
+                  <S.VillageTitle>
+                    Village de
                     <br />
                     Pescadores
-                  </VilaTitle>
-                </VilaTitleContent>
-              </VilaImageContent>
-            </VilaCol>
-          </VilaRow>
-        </Container>
-      </VilaContent>
+                  </S.VillageTitle>
+                </S.VillageTitleContent>
+              </S.VillageImageContent>
+            </S.VillageCol>
+          </S.VillageRow>
+        </S.Container>
+      </S.VillageContent>
       {parallax.map(({ id, bg, bdBg, bdColor, bgColor, title, desc }) => (
-        <VilaParallax
+        <VillageParallax
           key={id}
           id={id}
           bg={bg}
@@ -77,9 +65,9 @@ const Vila = () => {
           desc={desc}
         />
       ))}
-      <VilaParallaxEnd />
+      <S.VillageParallaxEnd />
     </>
   );
 }
 
-export default Vila
+export default memo(Village)

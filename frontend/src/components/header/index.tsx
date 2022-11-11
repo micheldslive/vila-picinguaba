@@ -1,23 +1,13 @@
 import Menu from '@/services/nav-menu.json'
-import {
-  HeaderContainer,
-  HeaderContent,
-  List,
-  ListContainer,
-  Logo,
-  LogoLink,
-  MenuLink,
-  Navigation,
-} from '@/assets/styles/header'
+import * as S from './styles'
 import Hamburguer from '@/components/hamburguer'
-import useStore from '@/core/zustand'
+import { useStore } from '@/core/zustand'
 import { useEffect } from 'react'
 
 const Header = () => {
-
   const { open, setOpen, sticky, setSticky } = useStore()
 
-  const closeMenu = () => {
+  const handleCloseMenu = () => {
     setOpen(false)
   }
 
@@ -28,25 +18,25 @@ const Header = () => {
   }, [setSticky])
 
   return (
-    <HeaderContent open={open} sticky={sticky}>
-      <HeaderContainer sticky={sticky}>
-        <LogoLink to='/'>
-          <Logo />
-        </LogoLink>
-        <Navigation open={open}>
-          <ListContainer>
+    <S.HeaderContent open={open} sticky={sticky}>
+      <S.HeaderContainer sticky={sticky}>
+        <S.LogoLink to='/'>
+          <S.Logo />
+        </S.LogoLink>
+        <S.Navigation open={open}>
+          <S.ListContainer>
             {Menu.map(({ title, go }) => (
-              <List key={title}>
-                <MenuLink to={go} onClick={() => closeMenu()}>
+              <S.List key={title}>
+                <S.MenuLink to={go} onClick={() => handleCloseMenu()}>
                   {title}
-                </MenuLink>
-              </List>
+                </S.MenuLink>
+              </S.List>
             ))}
-          </ListContainer>
-        </Navigation>
+          </S.ListContainer>
+        </S.Navigation>
         <Hamburguer />
-      </HeaderContainer>
-    </HeaderContent>
+      </S.HeaderContainer>
+    </S.HeaderContent>
   )
 }
 

@@ -4,7 +4,7 @@ import LineLeft from '@/assets/images/roteiros/line-left.png'
 import LineRight from '@/assets/images/roteiros/line-right.png'
 import { Link } from 'react-router-dom'
 
-export const RoteirosContent = styled.div`
+export const GuideContent = styled.div`
   padding: 4em 0;
   background: url(${BgTexture}) no-repeat;
   background-position: center;

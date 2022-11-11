@@ -14,8 +14,8 @@ export class CategoriasService {
     return this.categoriasRepository.find()
   }
 
-  findOne(id: string): Promise<Categorias> {
-    return this.categoriasRepository.findOne(id)
+  findOne(id_categoria: string): Promise<Categorias> {
+    return this.categoriasRepository.findOne({ where: { id_categoria } })
   }
 
   createCategoria(categoria: Categorias): Promise<Categorias> {

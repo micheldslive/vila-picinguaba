@@ -89,6 +89,24 @@ export class ProdutosController {
     }
   }
 
+  @Get('categoria/:id')
+  @ApiOperation({ summary: 'Retorna um produto pelo {ìd}' })
+  @ApiResponse({ status: 200, type: Produtos, isArray: true })
+  async findByIdCat(
+    @Res() response,
+    @Param('id', new ParseUUIDPipe()) id: string,
+  ) {
+    try {
+      const produtos = await this.libraryService.findAllByCat(id)
+      const produto = produtos || { message: 'Produto não encontrado' }
+      return response.status(HttpStatus.OK).json(produto)
+    } catch (error) {
+      return response.status(HttpStatus.FORBIDDEN).json({
+        message: `Erro inesperado no servidor! ${error}`,
+      })
+    }
+  }
+
   @Delete('/:id')
   @ApiOperation({ summary: 'Deleta um produto pelo {ìd}' })
   @ApiResponse({ status: 200, type: Produtos, isArray: true })

@@ -4,11 +4,13 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { ProdutosModule } from './modules/produtos.module'
 import { CategoriasModule } from './modules/categorias.module'
 import { ImagensModule } from './modules/imagens.module'
-import { connection } from './connection'
+import { AppDataSource } from '../ormconfig'
+import { ConfigModule } from '@nestjs/config'
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(connection),
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot(AppDataSource.options),
     ProdutosModule,
     CategoriasModule,
     ImagensModule,

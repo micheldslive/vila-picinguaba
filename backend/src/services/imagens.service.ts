@@ -14,8 +14,8 @@ export class ImagensService {
     return this.imagensRepository.find()
   }
 
-  findOne(id: string): Promise<Imagens> {
-    return this.imagensRepository.findOne(id)
+  findOne(id_img: string): Promise<Imagens> {
+    return this.imagensRepository.findOne({ where: { id_img } })
   }
 
   createImagem(imagem: Imagens): Promise<Imagens> {

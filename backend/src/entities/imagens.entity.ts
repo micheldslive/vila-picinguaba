@@ -8,7 +8,7 @@ import {
 import { ApiProperty } from '@nestjs/swagger'
 import { Produtos } from './produtos.entity'
 
-@Entity('tb_imagens', { schema: 'picinguaba' })
+@Entity()
 export class Imagens {
   @PrimaryGeneratedColumn('uuid', { name: 'id_img' })
   @ApiProperty({ description: 'column using uuid generator' })

@@ -1,37 +1,61 @@
 version: "3"
 services:
-  picinguaba-api:
-    container_name: 'picinguaba-api'
-    build: ./backend
+  picinguaba-web:
+    container_name: 'picinguaba-web'
+    build: ./frontend
+    depends_on:
+      - picinguaba-api
     ports:
-      - '4000:4000'
+      - "4173:4173"
+    networks:
+      - backend
+
+  picinguaba-api:
+    container_name: "picinguaba-api"
+    build: ./backend
+    volumes:
+      - ./backend:/opt/app-root/src:rw
+    ports:
+      - "4000:4000"
     expose:
-      - '4000'
-    command: 'npm start'
+      - "4000"
+    command: "yarn start:dev"
+    depends_on:
+      - picinguaba-dbtest
     networks:
       - backend
     environment:
-      MYSQL_HOST: 'picinguaba-db'
-      MYSQL_USER: 'root'
-      MYSQL_PASS: 'picinguaba123'
-      MYSQL_DATA: 'picinguaba'
+      MYSQL_HOST: "picinguaba-db"
+      MYSQL_USER: "root"
+      MYSQL_PASS: "picinguaba123"
+      MYSQL_DATA: "picinguaba"
 
   picinguaba-db:
     image: mysql
-    container_name: 'picinguaba-db'
+    container_name: "picinguaba-db"
     command: --default-authentication-plugin=mysql_native_password
-    restart: 'always'
+    restart: "always"
     ports:
-      - '3306:3306'
+      - "3306:3306"
     expose:
-      - '3306'
+      - "3306"
     networks:
       - backend
     environment:
-      MYSQL_ROOT_PASSWORD: 'picinguaba123'
-      MYSQL_DATABASE: 'picinguaba'
+      MYSQL_ROOT_PASSWORD: "picinguaba123"
+      MYSQL_DATABASE: "picinguaba"
+
+  db-restore:
+    build: ./restore/
+    volumes:
+      - ./restore/:/var/db/
+    command: sh -c "sleep 20 && /usr/bin/mysql -h picinguaba-db -uroot -ppicinguaba123 < /var/db/dump.sql"
+    depends_on:
+      - picinguaba-db
+      - picinguaba-api
+    networks:
+      - backend
 
 networks:
   backend:
-    driver: 'bridge'
-
+    driver: "bridge"

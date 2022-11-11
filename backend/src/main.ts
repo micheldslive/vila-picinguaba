@@ -5,7 +5,7 @@ import { AppModule } from './app.module'
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule)
-  const port: any = process.env.PORT || 4000
+  const port: string | number = process.env.PORT || 4000
 
   const APP_NAME = process.env.npm_package_name || 'api-picinguaba'
   const APP_VERSION = process.env.npm_package_version || '1.0'

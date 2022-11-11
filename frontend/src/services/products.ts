@@ -3,7 +3,7 @@ import Produto02 from "@/assets/images/home/paginas/produto-2.jpg";
 import Produto03 from "@/assets/images/home/paginas/produto-3.jpg";
 import Produto04 from "@/assets/images/home/paginas/produto-4.jpg";
 
-export const paginas = [
+export const products = [
   {
     id: 1,
     imagem: Produto01,

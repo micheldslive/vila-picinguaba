@@ -21,7 +21,7 @@ services:
       - "4000"
     command: "yarn start:dev"
     depends_on:
-      - picinguaba-dbtest
+      - picinguaba-db
     networks:
       - backend
     environment:

@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { AppModule } from './app.module'
+//import { mysqlDump } from '../ormconfig'
 
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule)
@@ -20,6 +21,8 @@ const bootstrap = async () => {
   SwaggerModule.setup('/', app, document)
 
   await app.listen(port)
+
+  //mysqlDump()
 }
 
 bootstrap()

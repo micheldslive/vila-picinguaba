@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `preco` double NOT NULL,
   `id_categoria` varchar(255) NOT NULL,
   `disponivel` int NOT NULL DEFAULT '0',
+  `descricao` varchar(255) NOT NULL,
   PRIMARY KEY (`id_produto`),
   KEY `FK_3f1e275d3eb47a219fcb9c8654b` (`id_categoria`),
   CONSTRAINT `FK_3f1e275d3eb47a219fcb9c8654b` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -237,7 +238,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -245,7 +247,8 @@ VALUES
     'ilha das couves',
     0,
     'f04096ea-4beb-4d57-a3b2-4b61fab54cd6',
-    0
+    0,
+    'Disparadamente a melhor resposta para quem pergunta o que fazer na ilha das couves é: mergulhar! Ela é um aquário natural com abundante vida marinha e constante atividade.\r\nLeve equipamento básico de mergulho, se não possuir, alugue máscara e snorkel no Emporium Picinguaba.'
   );
 INSERT INTO
   `produtos` (
@@ -253,7 +256,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -261,7 +265,8 @@ VALUES
     'Petiscos Beira Mar',
     0,
     'fc3ef946-1777-4b44-8e9d-025fb024827d',
-    0
+    0,
+    'No desprentesioso Petiscos Beira Mar, a simpatissísima Eli, cozinheira de mão cheia, serve receitas de praia deliciosas. ”Tudo bem simples, com poucos ingredientes\" disse ela. Comida fresca, na qual os peixes e frutos do mar recém-pescados brilham.'
   );
 INSERT INTO
   `produtos` (
@@ -269,7 +274,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -277,7 +283,8 @@ VALUES
     'Festa do Branco',
     0,
     '5cd896b7-f00d-4772-afaa-16f3715d1709',
-    0
+    0,
+    'É chegada a hora de celebrar! \n\nA festa do Branco é o prenúncio do novo ano que se aproxima! A vontade é genuína, de reciclar e recriar historias. \nA comunidade toda engajada em preparar o clima necessário para que a festa contagie ate quem nao sabe dançar. Momento de liberar! \nSoltar a energia estagnada, abrir espaço pro novo!\nDia 31/12 aqui na Picinguaba.'
   );
 INSERT INTO
   `produtos` (
@@ -285,7 +292,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -293,7 +301,8 @@ VALUES
     'Corrida de Canoa',
     0,
     '5cd896b7-f00d-4772-afaa-16f3715d1709',
-    0
+    0,
+    'A tradicional corrida de canoa caiçara acontece no proximo dia 15/12, seguindo a tradicao e mantendo viva a memoria ancestral contida em cada movimento. Para alem da competicao e premiacao, o bem maior que se cultiva atraves desse evento é o valor em reconhecer que muita historia e muitas maos foram precisas para que hoje pudessemos usufruir desse meio de transporte, que ate pouco tempo era meio de sobrevivencia.'
   );
 INSERT INTO
   `produtos` (
@@ -301,7 +310,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -309,7 +319,8 @@ VALUES
     'Esporte Náutico',
     0,
     'f04096ea-4beb-4d57-a3b2-4b61fab54cd6',
-    0
+    0,
+    'A locação de esportes náuticos \"Emporium Picinguaba\" está localizada no centro de Picinguaba, contando com uma equipe licenciada pela prefeitura e equipada com todos os itens de segurança, caiaques e pranchas.'
   );
 INSERT INTO
   `produtos` (
@@ -317,7 +328,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -325,7 +337,8 @@ VALUES
     'Festival do Camarão',
     0,
     '5cd896b7-f00d-4772-afaa-16f3715d1709',
-    0
+    0,
+    'Uma das estrelas dos eventos em Pincinguaba, é o Festival do Camarão. Reúne os principais restaurantes da cidade que criam cardápios especiais para dar destaque a uma iguaria típica do lugar: o camarão. No ano passado, em sua 23ª edição, o Festival bateu seu recorde de público, recebendo cerca de 10 mil pessoas que prestigiaram os restaurantes de toda vila. Os pratos apresentados foram criados especialmente para o Festival, com preços que variaram de R$ 10,00 a R$ 178,00.'
   );
 INSERT INTO
   `produtos` (
@@ -333,7 +346,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -341,7 +355,8 @@ VALUES
     'PicimBar',
     0,
     'fc3ef946-1777-4b44-8e9d-025fb024827d',
-    0
+    0,
+    'Deliciosos pratos com Frutos do Mar e um dos restaurantes mais antigos da Vila. O Picimbar foi inaugurado na praia de Picinguaba no município de Ubatuba, em 15 de novembro de 1983.'
   );
 INSERT INTO
   `produtos` (
@@ -349,7 +364,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -357,7 +373,8 @@ VALUES
     'Praia da FAZENDA',
     0,
     'f04096ea-4beb-4d57-a3b2-4b61fab54cd6',
-    0
+    0,
+    'Um paraíso de preservação. Aproveite o lugar para a praticar esportes na areia (que além de longa é bem larga) e também para curtir algumas remadas de SUP.'
   );
 INSERT INTO
   `produtos` (
@@ -365,7 +382,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -373,7 +391,8 @@ VALUES
     'Casa Verde',
     0,
     'c57fe202-62da-47f4-90b0-e963c324314a',
-    0
+    0,
+    'A Casa Verde é um espaço reservado muito próximo à Pousada, ideal para casais e famílias que buscam mais privacidade. A casa tem 3 quartos, sendo uma suíte, e acomoda entre 2 e 6 pessoas. Os serviços como piscina, sauna e todas as refeições ficam à disposição dos hóspedes na Pousada.'
   );
 INSERT INTO
   `produtos` (
@@ -381,7 +400,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -389,7 +409,8 @@ VALUES
     'Hotel Velinn Caravela',
     0,
     'c57fe202-62da-47f4-90b0-e963c324314a',
-    0
+    0,
+    'Rústica, acolhedora e decorada com peças de navios que naufragaram: esta é a Velinn Caravela Pousada. Varanda com rede, minibar e ar-condicionado são itens padrão em todos os quatro tipos de acomodação. O chalé acolhe até cinco pessoas em seus mais de 60 metros quadrados.'
   );
 INSERT INTO
   `produtos` (
@@ -397,7 +418,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -405,7 +427,8 @@ VALUES
     'Chales Four Seasons',
     0,
     'c57fe202-62da-47f4-90b0-e963c324314a',
-    0
+    0,
+    'Os Chales Four Seasons em Picinguaba dispõe de apartamentos com cozinha equipada, camas e banheiro privativo, não dispões de serviços de quarto é necessário trazer roupa de cama. Ampla área de lazer com: piscinas, sala de jogos, churrasqueiras, sala de estar, sala de leitura, redes de descanso. Esta à 70m da praia de Maranduba, que é tranquila com muitos quiosques, esportes náulticos e muito boa para caminhada.'
   );
 INSERT INTO
   `produtos` (
@@ -413,7 +436,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -421,7 +445,8 @@ VALUES
     'Sobre as Ondas',
     0,
     'fc3ef946-1777-4b44-8e9d-025fb024827d',
-    0
+    0,
+    'Ambiente Familiar e com um delicioso e impecável sabor caiçara. Na beira da Praia de Picinguaba.'
   );
 INSERT INTO
   `produtos` (
@@ -429,7 +454,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -437,7 +463,8 @@ VALUES
     'Festival Picinguaba',
     0,
     '5cd896b7-f00d-4772-afaa-16f3715d1709',
-    0
+    0,
+    'O Festival é promovido pelo Instituto Baía dos Vermelhos e reúne, geralmente no mês de agosto, diversos espetáculos artísticos e musicais.\rEm sua quarta edição, o festival trouxe artistas renomados da música e da dança, como o bailarino brasileiro Thiago Soares, o primeiro a integrar o Royal Ballet de Londres.\r\r\nOs turistas que estiveram na ilha no período de 4 a 18 de agosto do ano passado puderam prestigiar apresentações de obras eruditas e estilos populares de música e dança.'
   );
 INSERT INTO
   `produtos` (
@@ -445,7 +472,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -453,7 +481,8 @@ VALUES
     'Pousada Picinguba',
     0,
     'c57fe202-62da-47f4-90b0-e963c324314a',
-    0
+    0,
+    'Na Pousada Picinguaba preservamos a tranquilidade com apenas 9 acomodações duplas ou individuais e 1 suíte com banheira e vista privilegiada. Nossos quartos não possuem televisão, telefone ou internet, e possuem varanda privativa para observar o mar e a floresta no balanço tranquilo de uma rede. Em alguns quartos existe a possibilidade de incluir uma cama extra.'
   );
 INSERT INTO
   `produtos` (
@@ -461,7 +490,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -469,7 +499,8 @@ VALUES
     'Praia da almada',
     0,
     'f04096ea-4beb-4d57-a3b2-4b61fab54cd6',
-    0
+    0,
+    'A Praia da Almada tem ótimos restaurantes à beira-mar e, do mesmo modo que muitas de Ubatuba, presenteia cada banhista com um mar de águas claras bem calminhas.'
   );
 INSERT INTO
   `produtos` (
@@ -477,7 +508,8 @@ INSERT INTO
     `nome`,
     `preco`,
     `id_categoria`,
-    `disponivel`
+    `disponivel`,
+    `descricao`
   )
 VALUES
   (
@@ -485,7 +517,8 @@ VALUES
     'Deck da Villa',
     0,
     'fc3ef946-1777-4b44-8e9d-025fb024827d',
-    0
+    0,
+    'A Pousada está em meio à Mata Atlântica dentro do parque Estadual da Serra do Mar, em uma Pitoresca Vila Caiçara, um verdadeiro paraíso localizado ao norte de Ubatuba na Praia da Picinguaba.'
   );
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

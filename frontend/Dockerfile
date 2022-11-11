@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:16
 
 WORKDIR /picinguaba-web
 
@@ -6,6 +6,6 @@ COPY . .
 
 RUN yarn
 
-EXPOSE 5173
+EXPOSE 4173
 
-CMD ["yarn","dev"]
+CMD ["yarn", "start"]

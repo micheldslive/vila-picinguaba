@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host 0.0.0.0",
     "build": "tsc && vite build",
-    "start": "vite start --host",
-    "preview": "vite preview --host",
+    "preview": "vite --host 0.0.0.0 preview",
+    "start": "tsc && vite build && vite --host 0.0.0.0 preview",
     "coverage": "vitest run --coverage",
     "test": "vitest",
     "test:ui": "vitest --ui",

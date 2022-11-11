@@ -1,73 +1,55 @@
-import { Helmet } from "react-helmet-async";
-import { useEffect, useRef, useState } from "react";
-import { gsapFadeMove } from "@/utils/gsapEffect";
-import Api from "@/services/Api";
-import ImageBgTop from "@/components/background/image";
-import Background from "@/assets/images/roteiros/roteiros-bg.jpg";
-import {
-  RoteiroCard,
-  CardDesc,
-  CardIMG,
-  CardNumber,
-  RoteirosContent,
-  CardTitle,
-  Number,
-  CardContent,
-  CardInfo,
-} from "@/assets/styles/roteiros";
-import {
-  Container,
-  GlobalTitle,
-  GlobalTitleContent,
-} from "@/assets/styles/global";
-import Mapa from "@/utils/map";
+import { Helmet } from 'react-helmet-async'
+import { useEffect, useRef } from 'react'
+import { gsapFadeMove } from '@/utils/gsapEffect'
+import ImageBgTop from '@/components/backgrounds/image'
+import Background from '@/assets/images/roteiros/roteiros-bg.jpg'
+import * as S from './styles'
+import * as G from '@/assets/styles/global'
+import Map from '@/components/map'
+import { useDataStore } from '@/core/zustand'
 
 const Roteiros = () => {
-  const animate = useRef<HTMLElement>(null),
-    [produtos, setProdutos] = useState([]),
-    category = 2;
+  const { roteiros } = useDataStore(),
+    animate = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    Api.get(`/produtos/categoria/${category}`).then((res) => {
-      setProdutos(res.data);
-    });
-    gsapFadeMove(animate.current);
-  }, [category, animate]);
+    gsapFadeMove(animate.current)
+  }, [animate])
 
   return (
     <>
       <Helmet>
         <title>Vila Picinguaba - Roteiros</title>
         <meta
-          name="description"
-          content="Uma vila de pescadores preservada entre o mar e a floresta."
+          name='description'
+          content='Uma vila de pescadores preservada entre o mar e a floresta.'
         />
       </Helmet>
-      <ImageBgTop background={Background} title={"Roteiros"} />
-      <GlobalTitleContent>
-        <GlobalTitle>Planejamento Diário</GlobalTitle>
-      </GlobalTitleContent>
-      <RoteirosContent>
-        <Container ref={animate}>
-          {produtos?.map(({ id, nome, imagem_thumb, descricao }, index) => (
-            <RoteiroCard key={id} to={`/detalhes/${id}`}>
-              <CardContent>
-                <CardIMG src={imagem_thumb} alt={nome} />
-                <CardInfo>
-                  <CardTitle>{nome}</CardTitle>
-                  <CardDesc>{descricao}</CardDesc>
-                </CardInfo>
-              </CardContent>
-              <CardNumber>
-                <Number>0{index + 1}</Number>
-              </CardNumber>
-            </RoteiroCard>
+      <ImageBgTop background={Background} title={'Roteiros'} />
+      <G.GlobalTitleContent>
+        <G.GlobalTitle>Planejamento Diário</G.GlobalTitle>
+      </G.GlobalTitleContent>
+      <S.GuideContent>
+        <G.Container ref={animate}>
+          {roteiros?.map(({ id_produto, nome, imagens, descricao }, index) => (
+            <S.RoteiroCard key={id_produto} to={`/detalhes/${id_produto}`}>
+              <S.CardContent>
+                <S.CardIMG src={imagens[0].url_thumb} alt={nome} />
+                <S.CardInfo>
+                  <S.CardTitle>{nome}</S.CardTitle>
+                  <S.CardDesc>{descricao}</S.CardDesc>
+                </S.CardInfo>
+              </S.CardContent>
+              <S.CardNumber>
+                <S.Number>0{index + 1}</S.Number>
+              </S.CardNumber>
+            </S.RoteiroCard>
           ))}
-        </Container>
-      </RoteirosContent>
-      <Mapa />
+        </G.Container>
+      </S.GuideContent>
+      <Map />
     </>
-  );
-};
+  )
+}
 
-export default Roteiros;
+export default Roteiros

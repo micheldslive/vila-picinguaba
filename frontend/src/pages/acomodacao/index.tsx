@@ -1,80 +1,59 @@
-import { useEffect, useRef, useState } from "react";
-import { Helmet } from "react-helmet-async";
-import { gsapFadeMove, gsapMoveLeft, gsapMoveRight } from "@/utils/gsapEffect";
-import ImageBgTop from "@/components/background/image";
-import Background from "@/assets/images/acomodacao/acomodacao-bg.jpg";
-import {
-  GlobalSubtitle,
-  GlobalTitle,
-  GlobalTitleContent,
-} from "@/assets/styles/global";
-import {
-  AcomContainer,
-  AcomCardLink,
-  AcomCard,
-  AcomContent,
-  AcomDesc,
-  AcomIMG,
-  AcomInfo,
-  AcomTitle,
-  AcomFish,
-  Fish,
-  AcomNet,
-  Net,
-} from "@/assets/styles/acomodacao";
-import Api from "@/services/Api";
+import { memo, useEffect, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { gsapFadeMove, gsapMoveLeft, gsapMoveRight } from '@/utils/gsapEffect'
+import ImageBgTop from '@/components/backgrounds/image'
+import Background from '@/assets/images/acomodacao/acomodacao-bg.jpg'
+import * as G from '@/assets/styles/global'
+import * as S from './styles'
+import { useDataStore } from '@/core/zustand'
 
 const Acomodacao = () => {
-  const animate = useRef<HTMLDivElement>(null),
+  const { acomodacao } = useDataStore(),
+    animate = useRef<HTMLDivElement>(null),
     moveFish = useRef<HTMLImageElement>(null),
-    moveNet = useRef<HTMLImageElement>(null),
-    [produtos, setProdutos] = useState([]),
-    category = 4;
+    moveNet = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
-    Api.get(`/produtos/categoria/${category}`).then((res) => {
-      setProdutos(res.data);
-    });
-    gsapFadeMove(animate.current);
-    gsapMoveRight(moveFish.current);
-    gsapMoveLeft(moveNet.current);
-  }, [category]);
+    gsapFadeMove(animate.current)
+    gsapMoveRight(moveFish.current)
+    gsapMoveLeft(moveNet.current)
+  }, [])
   return (
     <>
       <Helmet>
         <title>Vila Picinguaba - Acomodação</title>
         <meta
-          name="description"
-          content="Uma vila de pescadores preservada entre o mar e a floresta."
+          name='description'
+          content='Uma vila de pescadores preservada entre o mar e a floresta.'
         />
       </Helmet>
-      <ImageBgTop background={Background} title={"Acomodação"} />
-      <GlobalTitleContent>
-        <GlobalTitle>Pousadas</GlobalTitle>
-        <GlobalSubtitle>
+      <ImageBgTop background={Background} title={'Acomodação'} />
+      <G.GlobalTitleContent>
+        <G.GlobalTitle>Pousadas</G.GlobalTitle>
+        <G.GlobalSubtitle>
           As pousadas e casas de aluguel oferecem conforto e paz pra quem
           procura descanso e calmaria, como um verdadeiro refúgio.
-        </GlobalSubtitle>
-      </GlobalTitleContent>
-      <AcomContent>
-        <AcomFish src={Fish} alt="" ref={moveFish} />
-        <AcomNet src={Net} alt="" ref={moveNet} />
-        <AcomContainer ref={animate}>
-          {produtos?.map(({ id, imagem_thumb, nome, descricao }) => (
-            <AcomCardLink key={id} to={`/detalhes/${id}`}>
-            <AcomCard>
-              <AcomIMG src={imagem_thumb} alt={nome} />
-              <AcomInfo>
-                <AcomTitle>{nome}</AcomTitle>
-                <AcomDesc>{descricao}</AcomDesc>
-              </AcomInfo>
-            </AcomCard>
-            </AcomCardLink>
+        </G.GlobalSubtitle>
+      </G.GlobalTitleContent>
+      <S.AcomContent>
+        <S.AcomFish src={S.Fish} alt='' ref={moveFish} />
+        <S.AcomNet src={S.Net} alt='' ref={moveNet} />
+        <S.AcomContainer ref={animate}>
+          {acomodacao?.map(({ id_produto, imagens, nome, descricao }) => (
+            <S.AcomCardLink key={id_produto} to={`/detalhes/${id_produto}`}>
+              <S.AcomCard>
+                <S.AcomIMG src={imagens[0]?.url_thumb} alt={nome} />
+                <S.AcomInfo>
+                  <S.AcomTitle>{nome}</S.AcomTitle>
+                  <S.AcomDesc>{descricao}</S.AcomDesc>
+                </S.AcomInfo>
+              </S.AcomCard>
+            </S.AcomCardLink>
           ))}
-        </AcomContainer>
-      </AcomContent>
+        </S.AcomContainer>
+      </S.AcomContent>
     </>
-  );
-};
+  )
+}
 
-export default Acomodacao;
+export default memo(Acomodacao)

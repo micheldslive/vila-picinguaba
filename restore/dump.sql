@@ -15,7 +15,7 @@ USE picinguaba;
 
 CREATE TABLE IF NOT EXISTS `categorias` (
   `id_categoria` varchar(36) NOT NULL,
-  `categoria` varchar(255) NOT NULL,
+  `nome` varchar(255) NOT NULL,
   PRIMARY KEY (`id_categoria`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -54,25 +54,25 @@ CREATE TABLE IF NOT EXISTS `produtos` (
 # ------------------------------------------------------------
 
 INSERT INTO
-  `categorias` (`id_categoria`, `categoria`)
+  `categorias` (`id_categoria`, `nome`)
 VALUES
   ('5cd896b7-f00d-4772-afaa-16f3715d1709', 'Eventos');
 INSERT INTO
-  `categorias` (`id_categoria`, `categoria`)
+  `categorias` (`id_categoria`, `nome`)
 VALUES
   (
     'c57fe202-62da-47f4-90b0-e963c324314a',
     'Acomodação'
   );
 INSERT INTO
-  `categorias` (`id_categoria`, `categoria`)
+  `categorias` (`id_categoria`, `nome`)
 VALUES
   (
     'f04096ea-4beb-4d57-a3b2-4b61fab54cd6',
     'Roteiros'
   );
 INSERT INTO
-  `categorias` (`id_categoria`, `categoria`)
+  `categorias` (`id_categoria`, `nome`)
 VALUES
   (
     'fc3ef946-1777-4b44-8e9d-025fb024827d',

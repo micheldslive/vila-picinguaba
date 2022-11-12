@@ -1,6 +1,4 @@
 import { AxiosResponse } from 'axios'
-import { StateCreator } from 'zustand'
-import { PersistOptions } from 'zustand/middleware'
 
 export interface PicinguabaStates {
   open: boolean
@@ -19,9 +17,9 @@ export interface PicinguabaDataStates {
   descricao: string
   categoria: {
     id_categoria: string
-    categoria: string
+    nome: string
   }
-  imagens: PicinguabaDataImagemState[]
+  imagens: PicinguabaDataImagemState
 }
 
 interface PicinguabaDataImagemState {
@@ -31,10 +29,10 @@ interface PicinguabaDataImagemState {
 }
 
 export interface PicinguabaDefaultStates {
-  eventos: PicinguabaDataStates[]
-  roteiros: PicinguabaDataStates[]
-  acomodacao: PicinguabaDataStates[]
-  alimentacao: PicinguabaDataStates[]
+  eventos: PicinguabaDataStates[] | null
+  roteiros: PicinguabaDataStates[] | null
+  acomodacao: PicinguabaDataStates[] | null
+  alimentacao: PicinguabaDataStates[] | null
   setData: () => void
 }
 
@@ -43,10 +41,10 @@ export interface PicinguabaDataResponseStates {
   value?: AxiosResponse
 }
 
-export type PicinguabaDataPersist = (
-  config: StateCreator<PicinguabaDefaultStates>,
-  options: PersistOptions<PicinguabaDefaultStates>,
-) => StateCreator<PicinguabaDefaultStates>
+export interface PicinguabaDetailsState {
+  product: PicinguabaDataStates | null
+  getProduct: (product_id: string | undefined) => Promise<PicinguabaDataStates>
+}
 
 export interface ParallaxArrayProps {
   parallax: ParallaxProps[]
@@ -69,7 +67,7 @@ export interface StatesProps {
 
 export interface ImageBgTopProps {
   background: string
-  title: string
+  title?: string
 }
 
 export interface VillageProps {

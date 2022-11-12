@@ -1,28 +1,11 @@
-import create, { StateCreator } from 'zustand'
-import { persist, PersistOptions } from 'zustand/middleware'
+import create from 'zustand'
 import {
-  PicinguabaDataPersist,
   PicinguabaDataResponseStates,
   PicinguabaDefaultStates,
+  PicinguabaDetailsState,
   PicinguabaStates,
 } from '@/core/types'
 import api from '@/core/api'
-
-export const ApiRequests = async () => {
-  const {
-    VITE_ID_EVENTOS,
-    VITE_ID_ROTEIROS,
-    VITE_ID_ACOMODACAO,
-    VITE_ID_ALIMENTACAO,
-  } = import.meta.env
-
-  const eventos = api.getProducts(VITE_ID_EVENTOS)
-  const roteiros = api.getProducts(VITE_ID_ROTEIROS)
-  const acomodacao = api.getProducts(VITE_ID_ACOMODACAO)
-  const alimentacao = api.getProducts(VITE_ID_ALIMENTACAO)
-
-  return await Promise.allSettled([eventos, roteiros, acomodacao, alimentacao])
-}
 
 const useStore = create<PicinguabaStates>((set) => ({
   open: false,
@@ -49,41 +32,44 @@ const useStore = create<PicinguabaStates>((set) => ({
   data: {},
 }))
 
-const useDataStore = create<PicinguabaDefaultStates>(
-  (persist as PicinguabaDataPersist)(
-    (set, get) => ({
-      eventos: [],
-      roteiros: [],
-      acomodacao: [],
-      alimentacao: [],
-      setData: async () => {
-        const response = async () => {
-          const response = await ApiRequests()
-          const [eventos, roteiros, acomodacao, alimentacao] = response.map(
-            ({ value }: PicinguabaDataResponseStates) =>
-              value?.data || [],
-          )
-          return { eventos, roteiros, acomodacao, alimentacao }
-        }
+const useDataStore = create<PicinguabaDefaultStates>((set) => ({
+  eventos: null,
+  roteiros: null,
+  acomodacao: null,
+  alimentacao: null,
+  setData: async () => {
+    const response = await api.getProducts()
+    const [eventos, roteiros, acomodacao, alimentacao] = response.map(
+      ({ value }: PicinguabaDataResponseStates) => value?.data || [],
+    )
 
-        const getStorage = get().acomodacao.length ? get() : undefined
+    set((state) => ({
+      ...state,
+      eventos,
+      roteiros,
+      acomodacao,
+      alimentacao,
+    }))
+  },
+}))
 
-        const { eventos, roteiros, acomodacao, alimentacao } =
-          getStorage || (await response())
+const useDetailStore = create<PicinguabaDetailsState>((set) => ({
+  product: null,
+  getProduct: async (product_id: string | undefined) => {
+    set((state) => ({
+      ...state,
+      product: null,
+    }))
 
-        console.log(eventos)
+    const { data } = await api.getProduct(product_id)
 
-        set((state) => ({
-          ...state,
-          eventos,
-          roteiros,
-          acomodacao,
-          alimentacao,
-        }))
-      },
-    }),
-    { name: 'data-store' },
-  ),
-)
+    set((state) => ({
+      ...state,
+      product: data,
+    }))
 
-export { useStore, useDataStore }
+    return data
+  },
+}))
+
+export { useStore, useDataStore, useDetailStore }

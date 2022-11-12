@@ -7,7 +7,7 @@ import FoodImage from '@/assets/images/alimentacao/food.webp'
 import IconCard from '@/assets/images/alimentacao/icon.png'
 import * as G from '@/assets/styles/global'
 import * as S from './styles'
-import { useDataStore } from '../../core/zustand'
+import { useDataStore } from '@/core/zustand'
 
 const Alimentacao = () => {
   const { alimentacao } = useDataStore(),
@@ -50,7 +50,11 @@ const Alimentacao = () => {
                               <S.AlIcon src={IconCard} alt={nome} />
                               <S.AlTitle>{nome}</S.AlTitle>
                             </S.AlTitleContent>
-                            <S.AlImg src={imagens[0].url_thumb} alt='' />
+                            <S.AlImg
+                              src={imagens[0].url_thumb}
+                              alt={nome}
+                              effect='blur'
+                            />
                           </S.AlCard>
                         </S.CardFront>
                         <S.CardBack>

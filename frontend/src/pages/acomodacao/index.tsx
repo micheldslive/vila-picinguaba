@@ -2,6 +2,7 @@ import { memo, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { gsapFadeMove, gsapMoveLeft, gsapMoveRight } from '@/utils/gsapEffect'
 import ImageBgTop from '@/components/backgrounds/image'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Background from '@/assets/images/acomodacao/acomodacao-bg.jpg'
 import * as G from '@/assets/styles/global'
 import * as S from './styles'
@@ -42,7 +43,11 @@ const Acomodacao = () => {
           {acomodacao?.map(({ id_produto, imagens, nome, descricao }) => (
             <S.AcomCardLink key={id_produto} to={`/detalhes/${id_produto}`}>
               <S.AcomCard>
-                <S.AcomIMG src={imagens[0]?.url_thumb} alt={nome} />
+                <S.AcomIMG
+                  src={imagens?.url_thumb}
+                  alt={nome}
+                  effect='blur'
+                />
                 <S.AcomInfo>
                   <S.AcomTitle>{nome}</S.AcomTitle>
                   <S.AcomDesc>{descricao}</S.AcomDesc>

@@ -7,7 +7,7 @@ import { GlobalTitle, GlobalTitleContent } from '@/assets/styles/global'
 import * as S from './styles'
 import { useDataStore } from '@/core/zustand'
 
-const Events = () => {
+const Eventos = () => {
   const { eventos } = useDataStore(),
     animate = useRef<HTMLDivElement>(null)
 
@@ -35,7 +35,11 @@ const Events = () => {
               <S.EventCol key={id_produto} lg={6} md={6}>
                 <S.EventLink to={`/detalhes/${id_produto}`}>
                   <S.EventCard>
-                    <S.EventIMG src={imagens[0].url_thumb} alt={nome} />
+                    <S.EventIMG
+                      src={imagens?.url_thumb}
+                      alt={nome}
+                      effect='blur'
+                    />
                     <S.EventTitle>{nome}</S.EventTitle>
                     <S.EventDesc>{descricao}</S.EventDesc>
                   </S.EventCard>
@@ -49,4 +53,4 @@ const Events = () => {
   )
 }
 
-export default memo(Events)
+export default memo(Eventos)

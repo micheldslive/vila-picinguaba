@@ -2,6 +2,7 @@ import { Col, Row } from 'react-bootstrap'
 import styled from 'styled-components'
 import DetailBG from '@/assets/images/detalhes/detalhes.png'
 import BgTexture from '@/assets/images/home/home-texture.png'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 export const DetailContent = styled.div`
   padding: 4em 0;
@@ -26,7 +27,7 @@ export const DetailImgContent = styled.div`
 
 export const DetailInfos = styled.div``
 
-export const DetailImg = styled.img`
+export const DetailImg = styled(LazyLoadImage)`
   border-radius: 100%;
   width: 90%;
 `

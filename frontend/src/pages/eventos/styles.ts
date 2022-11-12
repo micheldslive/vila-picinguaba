@@ -1,7 +1,8 @@
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Texture } from '../../components/products/styles'
+import { Texture } from '@/components/products/styles'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 export const EventsContent = styled.div`
   padding: 3em 0 4em;
@@ -32,7 +33,7 @@ export const EventCard = styled.div`
   padding: 40px;
 `
 
-export const EventIMG = styled.img`
+export const EventIMG = styled(LazyLoadImage)`
   padding-bottom: 15px;
 `
 

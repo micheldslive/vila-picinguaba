@@ -34,7 +34,7 @@ const Roteiros = () => {
           {roteiros?.map(({ id_produto, nome, imagens, descricao }, index) => (
             <S.RoteiroCard key={id_produto} to={`/detalhes/${id_produto}`}>
               <S.CardContent>
-                <S.CardIMG src={imagens[0].url_thumb} alt={nome} />
+                <S.CardIMG src={imagens?.url_thumb} alt={nome} />
                 <S.CardInfo>
                   <S.CardTitle>{nome}</S.CardTitle>
                   <S.CardDesc>{descricao}</S.CardDesc>

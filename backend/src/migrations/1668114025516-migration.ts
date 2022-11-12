@@ -11,7 +11,7 @@ export class foo1668114025516 implements MigrationInterface {
       `CREATE TABLE \`produtos\` (\`id_produto\` varchar(36) NOT NULL, \`nome\` varchar(255) NOT NULL, \`preco\` double NOT NULL, \`id_categoria\` varchar(255) NOT NULL, \`disponivel\` int NOT NULL DEFAULT '0', PRIMARY KEY (\`id_produto\`)) ENGINE=InnoDB`,
     )
     await queryRunner.query(
-      `CREATE TABLE \`categorias\` (\`id_categoria\` varchar(36) NOT NULL, \`categoria\` varchar(255) NOT NULL, PRIMARY KEY (\`id_categoria\`)) ENGINE=InnoDB`,
+      `CREATE TABLE \`categorias\` (\`id_categoria\` varchar(36) NOT NULL, \`nome\` varchar(255) NOT NULL, PRIMARY KEY (\`id_categoria\`)) ENGINE=InnoDB`,
     )
     await queryRunner.query(
       `ALTER TABLE \`imagens\` ADD CONSTRAINT \`FK_15192456360ddc202a61920e3e4\` FOREIGN KEY (\`id_produto\`) REFERENCES \`produtos\`(\`id_produto\`) ON DELETE NO ACTION ON UPDATE NO ACTION`,

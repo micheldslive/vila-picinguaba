@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm'
 import { ApiProperty } from '@nestjs/swagger'
@@ -26,7 +26,7 @@ export class Imagens {
   @ApiProperty()
   id_produto: string
 
-  @ManyToOne(() => Produtos, (tbProdutos) => tbProdutos.imagens, {
+  @OneToOne(() => Produtos, (tbProdutos) => tbProdutos.imagens, {
     onDelete: 'NO ACTION',
     onUpdate: 'NO ACTION',
   })

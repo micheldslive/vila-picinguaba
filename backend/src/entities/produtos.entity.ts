@@ -3,7 +3,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm'
 import { ApiProperty } from '@nestjs/swagger'
@@ -43,6 +43,6 @@ export class Produtos {
   @JoinColumn([{ name: 'id_categoria', referencedColumnName: 'id_categoria' }])
   categoria: Categorias
 
-  @OneToMany(() => Imagens, (tbImagens) => tbImagens.produto)
-  imagens: Imagens[]
+  @OneToOne(() => Imagens, (tbImagens) => tbImagens.produto)
+  imagens: Imagens
 }

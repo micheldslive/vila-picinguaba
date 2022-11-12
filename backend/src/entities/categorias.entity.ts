@@ -16,7 +16,7 @@ export class Categorias {
 
   @Column()
   @ApiProperty()
-  categoria: string
+  nome: string
 
   @JoinColumn({
     name: 'id_categoria',

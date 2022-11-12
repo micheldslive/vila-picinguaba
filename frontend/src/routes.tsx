@@ -3,8 +3,8 @@ import Home from '@/pages/home'
 import Alimentacao from '@/pages/alimentacao'
 import Acomodacao from '@/pages/acomodacao'
 import Roteiros from '@/pages/roteiros'
-import Events from '@/pages/eventos'
-import Details from '@/pages/details'
+import Eventos from '@/pages/eventos'
+import Detalhes from '@/pages/detalhes'
 import NotFound from '@/pages/404'
 
 const Routers = () => {
@@ -14,8 +14,8 @@ const Routers = () => {
       <Route path='/alimentacao' element={<Alimentacao />} />
       <Route path='/acomodacao' element={<Acomodacao />} />
       <Route path='/roteiros' element={<Roteiros />} />
-      <Route path='/eventos' element={<Events />} />
-      <Route path='/detalhes/:id' element={<Details />} />
+      <Route path='/eventos' element={<Eventos />} />
+      <Route path='/detalhes/:id' element={<Detalhes />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

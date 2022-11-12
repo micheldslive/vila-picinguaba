@@ -91,28 +91,15 @@ yarn
     },
 ```
 
-### Caso possua o docker instalado, utilize o comando abaixo para criar os `containers` do banco / api:
+#### Para iniciar o projeto (volte para a raiz e execute o docker)
 
 ```
 docker-compose up
 ```
 
-### Para iniciar a api:
-```
-yarn start
-```
-
-### Para iniciar a api com hot reload:
-```
-yarn start:dev
-```
-
-### Para iniciar a api em modo de produção:
-```
-yarn start:prod
-```  
+##### O servidor estará disponível no http://localhost:4173 em seu navegador
   
-## Desenveloper<br>
+## Desenvolvedor<br>
 <table>
   <tr>
     <td align="center">

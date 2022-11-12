@@ -59,7 +59,19 @@ Criar a infraestrutura necessária para o armazenamento e coleta de dados de um 
 ```
 docker-compose up
 ```
-  
+
+#### frontend:
+
+```
+http://localhost:4173
+```
+
+#### backend:
+
+```
+http://localhost:4000
+```
+
 ## Desenveloper<br>
 <table>
   <tr>

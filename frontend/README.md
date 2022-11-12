@@ -1,113 +1,82 @@
-<h1 align="center">
-  POMODORO APP
-</h1>
+<p align="center">	
+  <img src="src/assets/images/logo-picinguaba.svg" width="230" alt="Picinguaba" />
+</p>	
 
 <p align="center">
-  <img alt="POMODORO" src="https://img.shields.io/static/v1?label=POMODORO&message=app&color=success&labelColor=grey">
-  
-  <img alt="VITE" src="https://img.shields.io/static/v1?label=stack&message=vitejs&color=success&labelColor=grey">
-  
-  <img alt="Portfolio" src="https://img.shields.io/static/v1?label=portfolio&message=MICODE&color=success&labelColor=grey">
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-seções">Seções</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias-utilizadas">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#%EF%B8%8F-executando-o-projeto">Executando o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-desenvolvedor">Desenvolvedor</a>
 </p>
-
-## 💻 Sobre
-
-Projeto realizado utilizando layout POMODORO FRONT END MENTOR.
-
-<h4 align="center">Layout: <a href="https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G">hhttps://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G.</a></h4>
 
 <p align="center">
-  <img src="./.github/demo.jpg" />
+  <img alt="Picinguaba" src="https://img.shields.io/static/v1?label=vila&message=picinguaba&color=orange&labelColor=grey">
+  
+  <img alt="React" src="https://img.shields.io/static/v1?label=stack&message=React&color=orange&labelColor=grey">
+  
+  <img alt="Portfolio" src="https://img.shields.io/static/v1?label=portfolio&message=PICINGUABA&color=orange&labelColor=grey">
 </p>
 
-<h4 align="center"><a href="https://pomodoro-app-micode.vercel.app/">Clique aqui para ver o projeto no vercel.</a></h4>
+---
+
+## 💻 Projeto
+
+**"Projeto final do Gama Experience #39. A proposta foi desenvolver um guia turístico navegável sobre a Vila Picinguaba, com dicas sobre acomodações, roteiros, eventos e pontos para alimentação, mostrando um pouco de tudo que a Vila tem a oferecer. Vila Picinguaba em tupi-guarani significa, “refúgio dos peixes”. Picinguaba está localizada em uma tranquila baía no coração do Parque Natural da Mata Atlântica – floresta tropical e costeira, que se estende entre o Rio de Janeiro e São Paulo.**
+
+#### 👀 Pré-visualização do Projeto: https://vilapicinguaba.vercel.app/
+#### API do Projeto: https://api-picinguaba.herokuapp.com/
+#### Repositório da API: https://github.com/GuilhermeGilCampbell/API_Picinguaba
+---
+
+## 📌 Seções
+Site composto por 6 seções:
+
+- **Página inicial** Página incial do site;
+- **Alimentação:** Página falando sobre os pontos de Alimentação da Vila;
+- **Acomodação:** Página falando sobre os pontos de Acomodação da Vila;
+- **Roteiros:** Página indicando os melhores Roteiros da Vila;
+- **Eventos:** Página falando dos eventos mais importantes na Vila;
+- **Detalhes:** Página de detalhes dos eventos, roteiros, pousadas e restaurantes da Vila;
+- **404:** Página de erro que será exibida quando o endereço for inexistente;
 
 ---
 
-### 🚀 Tecnologias
+## 🚀 Tecnologias utilizadas
+Esse projeto foi desenvolvido com as seguintes tecnologias e suas dependencias:
 
-O projeto foi desenvolvido com as seguintes tecnologias:
-
-- [ViteJS](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [SASS](https://sass-lang.com/)
-- [Vitest](https://vitest.dev/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- [classnames](https://www.npmjs.com/package/classnames)
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [Husky](https://github.com/typicode/husky)
-- [Docker](https://www.docker.com/)
-- [react-circular-progressbar](https://www.npmjs.com/package/react-circular-progressbar)
-- [use-sound](https://www.npmjs.com/package/use-sound)
-- [react-hook-form](https://www.npmjs.com/package/react-hook-form)
+- **Vitejs**
+  - **Yarn** - sistema de gerenciamento de pacotes
+  - **Typescript** - por ser estritamente tipado 
+  - **Zustand** - gerenciador de estados
+  - **react-router-dom** - gerenciador de rotas
+  - **vitest** - testes unitários
+  - **styled-components** - estilização (css-in-js)
+  - **bootstrap** - framework css
+  - **gsap** - lib responsável pelas animações
+  - **axios** - cliente HTTP baseado em Promises
 
 ---
 
-### ▶️ Executando o projeto
+## ▶️ Executando o projeto
 
-Siga os seguintes passos para poder utilizar a aplicação em sua máquina.
+#### Clone o repositório usando o seguinte comando ou baixe
 
-1. Clone a aplicação em sua máquina local com os seguintes comandos:
-
-```bash
-git clone https://github.com/micheldslive/pomodoro-app.git
+```
+git clone https://github.com/micheldslive/vila-picinguaba.git
 ```
 
-2. Depois, vá até o diretório do seu projeto utilizando o comando
+#### Para iniciar o projeto (volte para a raiz e execute o docker)
 
-```bash
-cd pomodoro-app
+```
+docker-compose up
 ```
 
-3. Instale as dependências:
-
-```bash
-yarn install
-# ou
-npm install
-```
-
-4. Renomeando .env.example:
-
-```bash
-renomeie o arquivo .env.example para .env
-```
-
-5. Rode sua aplicação em sua [conexão local](http://localhost:3000)
-
-```bash
-npm run dev
-# ou
-yarn dev
-```
+##### O servidor estará disponível no http://localhost:4173 em seu navegador
 
 ---
 
-## ▶️ Executando o projeto (Docker)
-
-##### Com o Docker devidamente instalado e o repositório Clonado, Execute o comando abaixo:
-
-```
-docker compose up
-```
-
----
-
-### 📚 Testes
-
-Para realizar os testes rode os seguinte comando
-
-```bash
-npm run test
-# ou
-yarn test
-```
-
----
-
-## 💻 Desenvolvedor<br>
-
+## 💘 Desenvolvedor<br>
 <table>
   <tr>
     <td align="center">
@@ -120,7 +89,3 @@ yarn test
     </td>
   </tr>
 </table>
-
-### 🖊️ Licença
-
-O projeto é licenciado sobre a "MIT License" - Veja a pagina LICENÇA para mais destalhes.

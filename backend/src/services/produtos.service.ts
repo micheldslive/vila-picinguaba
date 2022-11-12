@@ -17,7 +17,10 @@ export class ProdutosService {
   }
 
   findOne(id_produto: string): Promise<Produtos> {
-    return this.produtosRepository.findOne({ where: { id_produto } })
+    return this.produtosRepository.findOne({
+      relations: ['categoria', 'imagens'],
+      where: { id_produto },
+    })
   }
 
   findAllByCat(id_categoria: string): Promise<Produtos[]> {

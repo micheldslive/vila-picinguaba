@@ -1,64 +1,60 @@
 version: "3"
 services:
   picinguaba-web:
-    container_name: 'picinguaba-web'
+    container_name: picinguaba-web
     build: ./frontend
     depends_on:
       - picinguaba-api
     ports:
-      - "4173:4173"
+      - 4173:4173
     environment:
-      VITE_API_BASEURL: 'picinguaba-api'
-      VITE_ID_EVENTOS: '5cd896b7-f00d-4772-afaa-16f3715d1709'
-      VITE_ID_ROTEIROS: 'f04096ea-4beb-4d57-a3b2-4b61fab54cd6'
-      VITE_ID_ACOMODACAO: 'c57fe202-62da-47f4-90b0-e963c324314a'
-      VITE_ID_ALIMENTACAO: 'fc3ef946-1777-4b44-8e9d-025fb024827d'
+      VITE_API_BASEURL: http://localhost:4000
+      VITE_ID_EVENTOS: 5cd896b7-f00d-4772-afaa-16f3715d1709
+      VITE_ID_ROTEIROS: f04096ea-4beb-4d57-a3b2-4b61fab54cd6
+      VITE_ID_ACOMODACAO: c57fe202-62da-47f4-90b0-e963c324314a
+      VITE_ID_ALIMENTACAO: fc3ef946-1777-4b44-8e9d-025fb024827d
     networks:
       - backend
-
+      
   picinguaba-api:
-    container_name: "picinguaba-api"
+    container_name: picinguaba-api
     build: ./backend
-    volumes:
-      - ./backend:/opt/app-root/src:rw
     ports:
       - "4000:4000"
     expose:
       - "4000"
-    command: "yarn start:dev"
     depends_on:
       - picinguaba-db
     networks:
       - backend
     environment:
-      MYSQL_HOST: "picinguaba-db"
-      MYSQL_USER: "root"
-      MYSQL_PASS: "picinguaba123"
-      MYSQL_DATA: "picinguaba"
+      MYSQL_HOST: picinguaba-db
+      MYSQL_USER: root
+      MYSQL_PASS: picinguaba123
+      MYSQL_DATA: picinguaba
 
   picinguaba-db:
+    container_name: picinguaba-db
     image: mysql
-    container_name: "picinguaba-db"
     command: --default-authentication-plugin=mysql_native_password
-    restart: "always"
+    restart: always
     ports:
-      - "3306:3306"
+      - 3306:3306
     expose:
-      - "3306"
+      - 3306
     networks:
       - backend
     environment:
-      MYSQL_ROOT_PASSWORD: "picinguaba123"
-      MYSQL_DATABASE: "picinguaba"
+      MYSQL_ROOT_PASSWORD: picinguaba123
+      MYSQL_DATABASE: picinguaba
 
-  db-restore:
+  restore:
     build: ./restore/
     volumes:
       - ./restore/:/var/db/
     command: sh -c "sleep 20 && /usr/bin/mysql -h picinguaba-db -uroot -ppicinguaba123 < /var/db/dump.sql"
     depends_on:
       - picinguaba-db
-      - picinguaba-api
     networks:
       - backend
 

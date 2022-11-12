@@ -1,14 +1,14 @@
 import { DataSource } from 'typeorm'
 import mysqldump from 'mysqldump'
 
-const host = process.env.MYSQL_USER || 'picinguaba-db'
-const user = process.env.MYSQL_USER || 'root'
-const password = process.env.MYSQL_PASS || 'picinguaba123'
-const database = process.env.MYSQL_DATA || 'picinguaba'
+const host = process.env.MYSQL_HOST
+const username = process.env.MYSQL_USER
+const password = process.env.MYSQL_PASS
+const database = process.env.MYSQL_DATA
 
 export const connection = {
   host,
-  user,
+  user: username,
   password,
   database,
 }
@@ -17,7 +17,7 @@ export const AppDataSource = new DataSource({
   type: 'mysql',
   host,
   port: 3306,
-  username: user,
+  username,
   password,
   database,
   entities: ['dist/**/*.entity.js'],

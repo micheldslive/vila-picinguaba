@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import BgTexture from "@/assets/images/alimentacao/bg-texture.png";
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 export const AlContent = styled.div`
   padding: 4em 0;
@@ -107,7 +108,7 @@ export const AlCard = styled.div`
   padding: 20px;
 `;
 
-export const AlImg = styled.img`
+export const AlImg = styled(LazyLoadImage)`
   border-radius: 15px;
   width: 100%;
 `;

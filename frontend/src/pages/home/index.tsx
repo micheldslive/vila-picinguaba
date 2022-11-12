@@ -4,18 +4,8 @@ import Products from '@/components/products'
 import Village from '@/components/village'
 import Contact from '@/components/contact'
 import Map from '@/components/map'
-import { useDataStore } from '@/core/zustand'
-import { useEffect } from 'react'
 
 const Home = () => {
-
-  const { eventos, setData } = useDataStore()
-
-  useEffect(() => {
-    setData()
-  }, [setData])
-
-  console.log(eventos)
   return (
     <>
       <Helmet>

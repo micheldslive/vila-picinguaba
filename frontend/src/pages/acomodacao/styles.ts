@@ -4,6 +4,7 @@ import BgTexture from '@/assets/images/acomodacao/bg-texture.png'
 import Fish from '@/assets/images/acomodacao/fish.png'
 import Net from '@/assets/images/acomodacao/net.png'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 export { Fish, Net }
 
@@ -39,7 +40,7 @@ export const AcomCardLink = styled(Link)`
   }
 `
 
-export const AcomIMG = styled.img`
+export const AcomIMG = styled(LazyLoadImage)`
   width: 100%;
   max-width: 210px;
 `

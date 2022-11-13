@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <S.HeaderContent open={open} sticky={sticky}>
       <S.HeaderContainer sticky={sticky}>
-        <S.LogoLink to='/'>
+        <S.LogoLink to='/' aria-label='logo-link'>
           <S.Logo />
         </S.LogoLink>
         <S.Navigation open={open}>

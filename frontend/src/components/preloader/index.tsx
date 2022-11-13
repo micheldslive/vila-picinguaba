@@ -3,7 +3,7 @@ import { PreloaderMain, PreloaderContainer, PicinguabaSun } from './styles'
 
 const Preloader = () => {
   return (
-    <PreloaderContainer>
+    <PreloaderContainer aria-label='preloader'>
       <PreloaderMain>
         <PicinguabaSun width='156' height='85' />
       </PreloaderMain>

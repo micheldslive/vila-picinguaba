@@ -16,19 +16,19 @@ const Contact = () => {
         <S.Form ref={animate}>
           <S.FormRow>
             <S.FormCol lg={6}>
-              <S.Input type='text' placeholder='Nome'></S.Input>
+              <S.Input type='text' placeholder='Nome' aria-label='input'></S.Input>
             </S.FormCol>
             <S.FormCol lg={6}>
-              <S.Input type='text' placeholder='Email'></S.Input>
+              <S.Input type='text' placeholder='Email'  aria-label='input'></S.Input>
             </S.FormCol>
             <S.FormCol lg={6}>
-              <S.Input type='text' placeholder='Telefone'></S.Input>
+              <S.Input type='text' placeholder='Telefone'  aria-label='input'></S.Input>
             </S.FormCol>
             <S.FormCol lg={6}>
-              <S.Input type='text' placeholder='Assunto'></S.Input>
+              <S.Input type='text' placeholder='Assunto'  aria-label='input'></S.Input>
             </S.FormCol>
             <S.FormCol lg={12}>
-              <S.Textarea placeholder='Mensagem' rows={7}></S.Textarea>
+              <S.Textarea placeholder='Mensagem' rows={7}  aria-label='input'></S.Textarea>
             </S.FormCol>
             <S.Send>Enviar</S.Send>
           </S.FormRow>

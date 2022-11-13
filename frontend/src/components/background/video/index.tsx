@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import { gsapFadeTop } from '@/utils/gsapEffect'
 import VideoSRC from '@/assets/video/video-picinguaba.mp4'
 import * as S from './styles'
+
+export { VideoSRC }
 
 const Video = () => {
   const animate = useRef<HTMLVideoElement>(null)
@@ -25,10 +27,11 @@ const Video = () => {
           muted
           loop
           data-object-fit='cover'
+          aria-label='video-element'
         />
       </S.VideoContent>
     </S.VideoContainer>
   )
 }
 
-export default Video
+export default memo(Video)

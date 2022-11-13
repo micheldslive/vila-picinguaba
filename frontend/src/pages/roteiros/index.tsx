@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useEffect, useRef } from 'react'
 import { gsapFadeMove } from '@/utils/gsapEffect'
-import ImageBgTop from '@/components/backgrounds/image'
+import ImageBgTop from '@/components/background/image'
 import Background from '@/assets/images/roteiros/roteiros-bg.jpg'
 import * as S from './styles'
 import * as G from '@/assets/styles/global'

@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { gsapFadeMove } from '@/utils/gsapEffect'
-import ImageBgTop from '@/components/backgrounds/image'
+import ImageBgTop from '@/components/background/image'
 import Background from '@/assets/images/eventos/eventos-bg.jpg'
 import { GlobalTitle, GlobalTitleContent } from '@/assets/styles/global'
 import * as S from './styles'

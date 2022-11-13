@@ -52,12 +52,12 @@ export interface ParallaxArrayProps {
 
 export interface ParallaxProps {
   id: number
-  bg: string
-  bdBg: string
-  bdColor: string
-  bgColor: string
+  background: string
+  waveBackground: string
+  waveColor: string
+  backgroundColor: string
   title: string
-  desc: string
+  description: string
 }
 
 export interface StatesProps {
@@ -72,8 +72,8 @@ export interface ImageBgTopProps {
 
 export interface VillageProps {
   gradient?: boolean
-  bgColor?: string
-  bdColor?: string
-  bdBg?: string
-  bg?: string
+  backgroundColor?: string
+  waveColor?: string
+  waveBackground?: string
+  background?: string
 }

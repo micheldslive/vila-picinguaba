@@ -7,7 +7,7 @@ const Hamburguer = () => {
   const handleClick = () => setOpen(!open)
 
   return (
-    <Burger open={open} onClick={() => handleClick()}>
+    <Burger open={open} onClick={() => handleClick()} aria-label='burguer'>
       <Bullets />
       <Bullets />
     </Burger>

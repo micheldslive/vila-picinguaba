@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 import { gsapFadeMove } from '@/utils/gsapEffect'
 import { Helmet } from 'react-helmet-async'
-import ImageBgTop from '@/components/backgrounds/image'
+import ImageBgTop from '@/components/background/image'
+import AlCardComponent from '@/components/card/alimentacao'
 import Background from '@/assets/images/alimentacao/alimentacao-bg.jpg'
 import FoodImage from '@/assets/images/alimentacao/food.webp'
-import IconCard from '@/assets/images/alimentacao/icon.png'
 import * as G from '@/assets/styles/global'
 import * as S from './styles'
 import { useDataStore } from '@/core/zustand'
@@ -39,40 +39,11 @@ const Alimentacao = () => {
         <S.AlContainer ref={animate}>
           <S.AlGroup>
             {alimentacao?.map(
-              ({ id_produto, nome, descricao, imagens }, index) =>
-                index <= 1 ? (
-                  <S.AlCardLink key={id_produto} to={`/detalhes/${id_produto}`}>
-                    <S.AlCardContent>
-                      <S.AlCardRow>
-                        <S.CardFront>
-                          <S.AlCard>
-                            <S.AlTitleContent>
-                              <S.AlIcon src={IconCard} alt={nome} />
-                              <S.AlTitle>{nome}</S.AlTitle>
-                            </S.AlTitleContent>
-                            <S.AlImg
-                              src={imagens[0].url_thumb}
-                              alt={nome}
-                              effect='blur'
-                            />
-                          </S.AlCard>
-                        </S.CardFront>
-                        <S.CardBack>
-                          <S.AlCard>
-                            <S.AlTitleContent>
-                              <S.AlIcon src={IconCard} alt={nome} />
-                              <S.AlTitle>Detalhes</S.AlTitle>
-                            </S.AlTitleContent>
-                            <S.AlDescContent>
-                              <S.AlDesc>{descricao}</S.AlDesc>
-                            </S.AlDescContent>
-                          </S.AlCard>
-                        </S.CardBack>
-                      </S.AlCardRow>
-                    </S.AlCardContent>
-                  </S.AlCardLink>
-                ) : (
-                  ''
+              (product, index) =>
+                index <= 1 && (
+                  <Fragment key={index.toString()}>
+                    <AlCardComponent {...product} />
+                  </Fragment>
                 ),
             )}
           </S.AlGroup>
@@ -81,36 +52,11 @@ const Alimentacao = () => {
           </S.AlGroup>
           <S.AlGroup>
             {alimentacao?.map(
-              ({ id_produto, nome, descricao, imagens }, index) =>
-                index > 1 ? (
-                  <S.AlCardLink key={id_produto} to={`/detalhes/${id_produto}`}>
-                    <S.AlCardContent>
-                      <S.AlCardRow>
-                        <S.CardFront>
-                          <S.AlCard>
-                            <S.AlTitleContent>
-                              <S.AlIcon src={IconCard} alt={nome} />
-                              <S.AlTitle>{nome}</S.AlTitle>
-                            </S.AlTitleContent>
-                            <S.AlImg src={imagens[0].url_thumb} alt='' />
-                          </S.AlCard>
-                        </S.CardFront>
-                        <S.CardBack>
-                          <S.AlCard>
-                            <S.AlTitleContent>
-                              <S.AlIcon src={IconCard} alt={nome} />
-                              <S.AlTitle>Detalhes</S.AlTitle>
-                            </S.AlTitleContent>
-                            <S.AlDescContent>
-                              <S.AlDesc>{descricao}</S.AlDesc>
-                            </S.AlDescContent>
-                          </S.AlCard>
-                        </S.CardBack>
-                      </S.AlCardRow>
-                    </S.AlCardContent>
-                  </S.AlCardLink>
-                ) : (
-                  ''
+              (product, index) =>
+                index > 1 && (
+                  <Fragment key={index.toString()}>
+                    <AlCardComponent {...product} />
+                  </Fragment>
                 ),
             )}
           </S.AlGroup>

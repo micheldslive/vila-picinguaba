@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsapFadeTop } from '@/utils/gsapEffect'
 import { BorderBrushTop } from '@/assets/styles/borders'
 import { ImageBgTopProps } from '@/core/types'
-import { ImageContainer, ImageContent, ImageTitle } from './styles'
+import * as S from './styles'
 
 const ImageBgTop = ({ background, title }: ImageBgTopProps) => {
   const animate = useRef<HTMLDivElement>(null)
@@ -13,11 +13,11 @@ const ImageBgTop = ({ background, title }: ImageBgTopProps) => {
 
   return (
     <>
-      <ImageContainer background={background} ref={animate}>
-        <ImageContent>
-          <ImageTitle>{title}</ImageTitle>
-        </ImageContent>
-      </ImageContainer>
+      <S.ImageContainer background={background} ref={animate} aria-label="image-container">
+        <S.ImageContent>
+          <S.ImageTitle>{title}</S.ImageTitle>
+        </S.ImageContent>
+      </S.ImageContainer>
       <BorderBrushTop />
     </>
   )

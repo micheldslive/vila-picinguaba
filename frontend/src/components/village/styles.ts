@@ -77,7 +77,7 @@ export const VillageTitle = styled.h1`
 export const VillageParallaxBG = styled.div<VillageProps>`
   height: ${({ gradient }) => (gradient ? '650px' : '500px')};
   width: 100%;
-  background: url(${({ bg }) => (bg ? bg : '')});
+  background: url(${({ background }) => (background ? background : '')});
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -104,14 +104,14 @@ export const VillageParallaxBG = styled.div<VillageProps>`
 
 export const VillageParallaxBorder = styled.div<VillageProps>`
   height: 70px;
-  background: url(${({ bdBg }) => (bdBg ? bdBg : '')})
-    ${({ bdColor }) => (bdColor ? bdColor : '')};
+  background: url(${({ waveBackground }) => (waveBackground ? waveBackground : '')})
+    ${({ waveColor }) => (waveColor ? waveColor : '')};
   background-size: cover;
   background-position: center;
 `
 
 export const VillageParallaxContainer = styled.div<VillageProps>`
-  background: ${({ bgColor }) => (bgColor ? bgColor : '')};
+  background: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : '')};
 `
 
 export const VillageParallaxContent = styled.div`

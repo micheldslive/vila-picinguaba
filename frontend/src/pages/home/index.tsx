@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import Video from '@/components/backgrounds/video'
+import Video from '@/components/background/video'
 import Products from '@/components/products'
 import Village from '@/components/village'
 import Contact from '@/components/contact'

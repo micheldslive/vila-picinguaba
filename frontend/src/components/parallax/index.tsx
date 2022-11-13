@@ -5,12 +5,12 @@ import { ParallaxProps } from '@/core/types'
 
 export const VillageParallax = ({
   id,
-  bg,
-  bdBg,
-  bdColor,
-  bgColor,
+  background,
+  waveBackground,
+  waveColor,
+  backgroundColor,
   title,
-  desc,
+  description,
 }: ParallaxProps) => {
   const animate = useRef<HTMLDivElement>(null)
 
@@ -20,12 +20,24 @@ export const VillageParallax = ({
 
   return (
     <>
-      <S.VillageParallaxBG gradient={id === 1 ? true : false} bg={bg} />
-      <S.VillageParallaxBorder bdBg={bdBg} bdColor={bdColor} />
-      <S.VillageParallaxContainer bgColor={bgColor}>
+      <S.VillageParallaxBG
+        gradient={id === 1 ? true : false}
+        background={background}
+        aria-label='parallax-bg'
+      />
+      <S.VillageParallaxBorder
+        waveBackground={waveBackground}
+        waveColor={waveColor}
+        aria-label='parallax-wave'
+      />
+      <S.VillageParallaxContainer backgroundColor={backgroundColor}>
         <S.VillageParallaxContent ref={animate}>
-          <S.VillageParallaxTitle>{title}</S.VillageParallaxTitle>
-          <S.VillageParallaxDescription>{desc}</S.VillageParallaxDescription>
+          <S.VillageParallaxTitle aria-label='parallax-title'>
+            {title}
+          </S.VillageParallaxTitle>
+          <S.VillageParallaxDescription aria-label='parallax-description'>
+            {description}
+          </S.VillageParallaxDescription>
         </S.VillageParallaxContent>
       </S.VillageParallaxContainer>
     </>

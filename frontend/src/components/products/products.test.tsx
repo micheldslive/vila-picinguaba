@@ -19,7 +19,7 @@ describe('<Products />', () => {
 
     expect(productsContent).toBeInTheDocument()
 
-    products.map(({ title, imagem, to }) => {
+    products.forEach(({ title, imagem, to }) => {
       const image = getByLabelText(title)
       const link = getByLabelText(to)
 

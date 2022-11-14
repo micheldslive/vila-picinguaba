@@ -6,7 +6,7 @@ COPY . .
 
 RUN yarn
 
-RUN yarn test
+RUN yarn test --silent
 
 EXPOSE 4173
 

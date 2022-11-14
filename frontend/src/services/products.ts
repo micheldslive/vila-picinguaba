@@ -8,24 +8,24 @@ export const products = [
     id: 1,
     imagem: Produto01,
     title: 'Alimentação',
-    to: 'alimentacao',
+    to: '/alimentacao',
   },
   {
     id: 2,
     imagem: Produto02,
     title: 'Acomodação',
-    to: 'acomodacao',
+    to: '/acomodacao',
   },
   {
     id: 3,
     imagem: Produto03,
     title: 'Roteiros',
-    to: 'roteiros',
+    to: '/roteiros',
   },
   {
     id: 4,
     imagem: Produto04,
     title: 'Eventos',
-    to: 'eventos',
+    to: '/eventos',
   },
 ]

@@ -2,7 +2,7 @@ import ImageBgTop from '.'
 import Background from '@/assets/images/acomodacao/acomodacao-bg.jpg'
 import { getRenderer } from '@/core/tests'
 
-describe('<BackButton />', () => {
+describe('<ImageBgTops />', () => {
   it('should have a Background style and Title element', () => {
     const { getByLabelText, getByText } = getRenderer(
       <ImageBgTop background={Background} title={'Title'} />,

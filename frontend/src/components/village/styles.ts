@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Row, Col } from 'react-bootstrap'
-import { VillageProps } from '@/core/types'
 import VillageImageJPG from '@/assets/images/home/pescador-rede.jpg'
 
 export { VillageImageJPG }
@@ -72,71 +71,6 @@ export const VillageTitle = styled.h1`
     font-size: 50px;
     line-height: 50px;
   }
-`
-
-export const VillageParallaxBG = styled.div<VillageProps>`
-  height: ${({ gradient }) => (gradient ? '650px' : '500px')};
-  width: 100%;
-  background: url(${({ background }) => (background ? background : '')});
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
-
-  ${({ gradient }) =>
-    gradient &&
-    `
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(19, 55, 84, 1) -1%,
-          rgba(19, 55, 84, 0) 100%
-        );
-        width: 100%;
-        height: 300px;
-        margin-top: -1px;
-      }
-  `}
-`
-
-export const VillageParallaxBorder = styled.div<VillageProps>`
-  height: 70px;
-  background: url(${({ waveBackground }) => (waveBackground ? waveBackground : '')})
-    ${({ waveColor }) => (waveColor ? waveColor : '')};
-  background-size: cover;
-  background-position: center;
-`
-
-export const VillageParallaxContainer = styled.div<VillageProps>`
-  background: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : '')};
-`
-
-export const VillageParallaxContent = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 4em 20px;
-  text-align: center;
-  color: white;
-`
-
-export const VillageParallaxTitle = styled.h1`
-  font-family: 'Staatliches', cursive;
-  font-size: 50px;
-  font-weight: 100;
-  line-height: 80px;
-  transition: 300ms;
-
-  @media (max-width: 500px) {
-    font-size: 40px;
-  }
-`
-
-export const VillageParallaxDescription = styled.p`
-  font-size: 20px;
-  font-weight: 600;
 `
 
 export const VillageParallaxEnd = styled.div`

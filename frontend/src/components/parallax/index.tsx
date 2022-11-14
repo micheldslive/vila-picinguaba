@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsapFadeMove } from '@/utils/gsapEffect'
-import * as S from '@/components/village/styles'
+import * as S from './styles'
 import { ParallaxProps } from '@/core/types'
 
 export const VillageParallax = ({

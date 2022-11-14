@@ -3,7 +3,7 @@ import { getRenderer } from '@/core/tests'
 import { parallax } from '../../services/home'
 
 describe('<VillageParallax />', () => {
-  parallax.map((item) => {
+  parallax.forEach((item) => {
     it('should have a Title, Description, Background and waveBackground', () => {
       const { getByLabelText } = getRenderer(<VillageParallax {...item} />)
 

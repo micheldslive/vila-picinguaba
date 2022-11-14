@@ -17,7 +17,7 @@ describe('<Header />', () => {
 
     const logo = getByLabelText('logo-link')
 
-    Menu.map(({ go, title }) => {
+    Menu.forEach(({ go, title }) => {
       const link = getByText(title)
 
       expect(link).toBeInTheDocument()

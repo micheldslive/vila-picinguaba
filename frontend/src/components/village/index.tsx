@@ -14,7 +14,7 @@ const Village = () => {
 
   return (
     <>
-      <S.VillageContent>
+      <S.VillageContent aria-label='village-content'>
         <S.Container>
           <S.VillageRow ref={animate}>
             <S.VillageCol lg={6} md={12}>
@@ -39,7 +39,11 @@ const Village = () => {
             </S.VillageCol>
             <S.VillageCol lg={6} md={12}>
               <S.VillageImageContent>
-                <S.VillageImage src={S.VillageImageJPG} alt='' />
+                <S.VillageImage
+                  src={S.VillageImageJPG}
+                  alt=''
+                  aria-label='village-image'
+                />
                 <S.VillageTitleContent>
                   <S.VillageTitle>
                     Village de

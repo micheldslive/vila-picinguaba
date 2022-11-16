@@ -11,7 +11,7 @@ const Footer = () => {
         <Container>
           <S.FooterRow>
             <S.FooterCol lg={6} md={6} sm={12}>
-              <S.LogoPicinguabaIMG src={S.LogoSVG} alt='Logo Picinguaba' />
+              <S.LogoPicinguabaIMG src={S.LogoSVG} alt='Logo Picinguaba' aria-label='logo' />
               <S.Paragraph>
                 Uma vila de pescadores preservada entre o mar e a floresta.
               </S.Paragraph>
@@ -56,7 +56,7 @@ const Footer = () => {
             <S.CopyContent>
               <S.CopyText>
                 Feito com ❤️ pela{' '}
-                <S.CopyLink href='#' target='_blank' rel='noreferrer'>
+                <S.CopyLink href='#'>
                   {' '}
                   Equipe 02 - Desafio Chefão
                 </S.CopyLink>

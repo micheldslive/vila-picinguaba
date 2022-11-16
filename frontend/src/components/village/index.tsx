@@ -1,7 +1,7 @@
 import { Fragment, memo, useEffect, useRef } from 'react'
 import * as G from '@/assets/styles/global'
 import * as S from './styles'
-import { VillageParallax } from '@/components/parallax'
+import VillageParallax from '@/components/parallax'
 import { parallax } from '@/services/home'
 import { gsapFadeMove } from '@/utils/gsapEffect'
 

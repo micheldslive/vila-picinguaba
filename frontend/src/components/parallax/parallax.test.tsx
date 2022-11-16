@@ -1,6 +1,6 @@
-import { VillageParallax } from '.'
+import VillageParallax from '.'
 import { getRenderer } from '@/core/tests'
-import { parallax } from '../../services/home'
+import { parallax } from '@/services/home'
 
 describe('<VillageParallax />', () => {
   it.each(parallax)('should have a Title, Description, Background and waveBackground', (item) => {

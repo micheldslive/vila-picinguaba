@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import { gsapFadeMove } from '@/utils/gsapEffect'
 import * as S from './styles'
 import { ParallaxProps } from '@/core/types'
 
-export const VillageParallax = ({
+const VillageParallax = ({
   id,
   background,
   waveBackground,
@@ -43,3 +43,5 @@ export const VillageParallax = ({
     </>
   )
 }
+
+export default memo(VillageParallax)
